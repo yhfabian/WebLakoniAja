@@ -1,10 +1,8 @@
 <?php
 session_start();
-
-// Hapus semua session
 session_unset();
 session_destroy();
-
-// Redirect ke halaman login konselor
+setcookie('id_konselor', '', time() - 3600, '/');
+setcookie('nama', '', time() - 3600, '/');
 header("Location: index.php");
 exit();

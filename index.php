@@ -46,7 +46,7 @@
       <div class="col-md-7 text-start">
         <h1>Ruang Aman Untuk Kesehatan Mental Mahasiswa</h1>
         <p>Platform ini hadir sebagai ruang aman, nyaman, dan mudah diakses mahasiswa Polije untuk layanan konseling digital.</p>
-        <a href="#daftar" class="btn btn-primary">Mulai Konseling</a>
+        
       </div>
       <div class="col-md-5">
           <img src="assets/img/logo2.png" alt="Logo Polije" style="width:200px;">
