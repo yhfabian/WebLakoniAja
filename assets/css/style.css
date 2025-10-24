@@ -1,0 +1,486 @@
+/* Layout utama */
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #eaf6ff; /* biru muda */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Bagian kiri */
+.left {
+    flex: 1;
+    background-color: #eaf6ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* supaya konten ada di tengah vertikal */
+    align-items: center;      /* supaya konten ada di tengah horizontal */
+    padding: 40px;
+    text-align: center;       /* teks rata tengah */
+}
+
+.left img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.left h1 {
+    font-size: 54px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-shadow: 1px 2px 4px hwb(204 5% 55%);
+}
+
+.left p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* Bagian kanan */
+.right {
+    flex: 1;
+    width: 500px;
+    max-width: 90%; 
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: -5px 0 20px hwb(204 5% 55%);
+    margin-right: 50px; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+   
+}
+
+.right h1 {
+    text-align: center;
+    font-size: 52px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    color: #0d4a73;
+    text-shadow: 1px 2px 4px hwb(204 5% 55%);
+}
+
+/* Form */
+form label {
+    font-weight: 600;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* Samakan semua input agar konsisten */
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #f0f6ff;
+    box-sizing: border-box; /* biar padding tidak bikin overflow */
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0066cc;
+    background-color: #eaf3ff;
+    outline: none;
+}
+
+
+.note {
+    font-size: 12px;   
+    color: #555;       
+    margin-top: 4px;   
+    font-style: italic; 
+}
+
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0d4a73;
+    background-color: #eaf6ff;
+    box-shadow: 0 0 6px rgba(13,74,115,0.3);
+    outline: none;
+}
+
+/* Wrapper untuk password */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 100px; /* kasih ruang buat ikon 👁️ */
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #0d4a73;
+    user-select: none;
+}
+
+
+/* Tombol */
+button {
+    background: #0d4a73;
+    color: white;
+    width: 200px; /* kecil */
+    margin: 20px auto 10px auto; /* tengah */
+    padding: 12px 0;
+    font-size: 19px;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+    display: block;
+    text-align: center;
+}
+
+button:hover {
+    background: #1565a5;
+    transform: scale(1.05);
+}
+
+/* Teks "Belum punya akun?" biar ditengah */
+.right p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Link tambahan */
+.forgot-password {
+    text-align: left;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.forgot-password a {
+    color: #0d4a73;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+p a {
+    color: #0d4a73;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Alert */
+.alert {
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.alert.error {
+    background: #ffe0e0;
+    color: #b00020;
+}
+
+.alert.success {
+    background: #e0ffe4;
+    color: #007a2e;
+}
+/* Card reusable */
+.card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    margin: 40px auto;
+}
+/*==dasboard css==*/
+/* Pengaturan Dasar & Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #EBF5FF; /* Warna latar belakang biru muda */
+}
+
+/* Navigasi Atas */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004A7C; /* Biru tua */
+    color: white;
+    padding: 10px 40px;
+    height: 70px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.logo {
+    height: 45px;
+    width: 45px;
+    background-color: #fff; /* Placeholder jika gambar tidak ada */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid white;
+    font-weight: 700;
+}
+
+.user-profile-nav {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.user-profile-nav .avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin: 0 10px;
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+    background-color: #003355; /* Lingkaran biru lebih gelap */
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* Kontainer Utama */
+.dashboard-container {
+    display: flex;
+    padding: 30px 40px;
+    gap: 30px;
+}
+
+/* Gaya Kartu Umum */
+.card {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Kolom Kiri / Sidebar */
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-pic-main {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin-bottom: 15px;
+    border: 3px solid #EBF5FF;
+}
+
+.profile-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.profile-card p {
+    color: #888;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Pelacak Mood */
+.mood-tracker {
+    display: flex;
+    height: 300px;
+}
+
+.mood-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 600;
+}
+
+.chart-area {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border-left: 2px solid #f0f0f0;
+    border-bottom: 2px solid #f0f0f0;
+    padding-left: 10px;
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.bar {
+    width: 18px;
+    background-color: #004A7C;
+    border-radius: 5px 5px 0 0;
+}
+
+.bar-group span {
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Konten Utama (Kanan) */
+.main-content {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Kartu Cepat (Kosong) */
+.quick-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.empty-card {
+    height: 160px;
+}
+
+/* Testimoni */
+.testimonials h3 {
+    color: #555;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.testimonial-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin-right: 15px;
+}
+
+.author-info h4 {
+    font-size: 1rem;
+    color: #333;
+}
+
+.testimonial-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-left: 60px; /* Sejajar dengan teks di atas */
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+    color: #888;
+    font-size: 0.9rem;
+    margin-left: 60px;
+}
+
+.actions span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.actions i {
+    color: #004A7C;
+}

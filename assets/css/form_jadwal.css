@@ -1,0 +1,156 @@
+body {
+  background: #D9EEFF;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  color: #04335E;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 50px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 45px;
+  margin-right: 10px;
+}
+.logo h2 {
+  font-weight: 700;
+  color: #04335E;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #04335E;
+  font-weight: 600;
+}
+nav a.active {
+  border-bottom: 3px solid #04335E;
+  padding-bottom: 3px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.user img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  padding: 40px 60px;
+}
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* ===== SEARCH ===== */
+.search-box {
+  margin-bottom: 30px;
+}
+.search-box input {
+  width: 100%;
+  max-width: 700px;
+  border: none;
+  border-radius: 40px;
+  padding: 14px 25px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== CARD LAYOUT ===== */
+.container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+  flex: 1;
+  min-width: 340px;
+}
+
+/* Profil Konselor */
+.card.profile {
+  text-align: center;
+  max-width: 350px;
+}
+.card.profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.card.profile h2 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.card.profile p {
+  font-size: 18px;
+  color: #003366;
+}
+
+/* Form Jadwal */
+.card.schedule h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #04335E;
+  margin-bottom: 15px;
+}
+form label {
+  font-weight: 600;
+  display: block;
+  margin: 8px 0 5px;
+}
+form input,
+form select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 12px;
+}
+form button {
+  background: #04335E;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+form button:hover {
+  background: #022B4C;
+}
+
+/* Alerts */
+.alert {
+  background: #ffe0e0;
+  color: #a00;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.alert.success {
+  background: #e6ffe6;
+  color: #008000;
+}

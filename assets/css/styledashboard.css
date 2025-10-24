@@ -1,0 +1,294 @@
+/* Pengaturan Dasar & Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #EBF5FF; /* Warna latar belakang biru muda */
+}
+
+/* Navigasi Atas */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #004A7C; /* Biru tua */
+    color: white;
+    padding: 10px 40px;
+    height: 70px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.logo {
+    height: 45px;
+    width: 45px;
+    background-color: #fff; /* Placeholder jika gambar tidak ada */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid white;
+    font-weight: 700;
+}
+
+.user-profile-nav {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.user-profile-nav .avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin: 0 10px;
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+    background-color: #003355; /* Lingkaran biru lebih gelap */
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* Kontainer Utama */
+.dashboard-container {
+    display: flex;
+    padding: 30px 40px;
+    gap: 30px;
+}
+
+/* Gaya Kartu Umum */
+.card {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Kolom Kiri / Sidebar */
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-pic-main {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin-bottom: 15px;
+    border: 3px solid #EBF5FF;
+}
+
+.profile-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.profile-card p {
+    color: #888;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Pelacak Mood */
+.mood-tracker {
+    display: flex;
+    height: 300px;
+}
+
+.mood-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 600;
+}
+
+.chart-area {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border-left: 2px solid #f0f0f0;
+    border-bottom: 2px solid #f0f0f0;
+    padding-left: 10px;
+}
+
+.bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.bar {
+    width: 18px;
+    background-color: #004A7C;
+    border-radius: 5px 5px 0 0;
+}
+
+.bar-group span {
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Konten Utama (Kanan) */
+.main-content {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Kartu Cepat (Kosong) */
+.quick-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.empty-card {
+    height: 160px;
+}
+
+/* Testimoni */
+.testimonials h3 {
+    color: #555;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.testimonial-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.testimonial-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder */
+    margin-right: 15px;
+}
+
+.author-info h4 {
+    font-size: 1rem;
+    color: #333;
+}
+
+.testimonial-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-left: 60px; /* Sejajar dengan teks di atas */
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 20px;
+    color: #888;
+    font-size: 0.9rem;
+    margin-left: 60px;
+}
+
+.actions span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.actions i {
+    color: #004A7C;
+}
+.btn-edit {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background-color: #0066cc;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.btn-edit:hover {
+  background-color: #004c99;
+}
+.logout-btn {
+  background-color: #d9534f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #b52b27;
+}
