@@ -43,7 +43,7 @@ $foto_main = !empty($konselor['foto']) ? 'uploads/' . $konselor['foto'] : 'asset
             <ul class="nav-links">
                 <li><a href="testimoni.php">TESTIMONI</a></li>
                 <li><a href="form_jadwal.php">SCHEDULE</a></li>
-                <li><a href="#">CHAT</a></li>
+                <li><a href="chat.php">CHAT</a></li>
                 <li><a href="dashboard.php" class="active">HOME</a></li>
             </ul>
 
