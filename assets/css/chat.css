@@ -1,198 +1,189 @@
-/* ===== FONT & GLOBAL ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #f5f6fa;
+  background: #f2f6fb;
 }
 
-/* ===== NAVBAR ===== */
+/* Navbar */
 .navbar {
+  background: #0a376e;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0c2b59;
-  color: white;
-  padding: 10px 30px;
+  padding: 12px 30px;
 }
 
 .navbar .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .navbar .logo img {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  margin-right: 10px;
 }
 
 .navbar nav a {
   color: white;
+  margin: 0 12px;
   text-decoration: none;
-  margin-left: 25px;
   font-weight: 500;
-  transition: 0.2s;
 }
 
-.navbar nav a:hover,
 .navbar nav a.active {
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 3px;
 }
 
-/* ===== CHAT CONTAINER ===== */
-.chat-container {
+/* Wrapper */
+.chat-wrapper {
   display: flex;
   height: calc(100vh - 70px);
 }
 
-/* ===== SIDEBAR KIRI ===== */
-.chat-sidebar {
-  width: 25%;
-  background-color: white;
-  border-right: 1px solid #ddd;
+/* Sidebar user */
+.sidebar-users {
+  width: 28%;
+  background: #fff;
+  border-right: 1px solid #dce3f0;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
+  padding: 10px 15px;
 }
 
-.chat-sidebar .chat-item {
+.sidebar-users h3 {
+  font-size: 16px;
+  color: #0a376e;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.user-card {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  border-bottom: 1px solid #eee;
-  transition: 0.2s;
+  transition: background 0.3s;
 }
 
-.chat-sidebar .chat-item:hover {
-  background-color: #f2f6ff;
+.user-card.active,
+.user-card:hover {
+  background: #eef4ff;
 }
 
-.chat-sidebar .chat-item img {
+.user-avatar {
+  position: relative;
+  margin-right: 10px;
+}
+
+.user-avatar img {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  margin-right: 15px;
+  object-fit: cover;
 }
 
-.chat-sidebar .chat-item .info h4 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
+.status-dot {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
 }
 
-.chat-sidebar .chat-item .info p {
+.status-dot.online {
+  background: #00c853; /* hijau */
+}
+
+.status-dot.offline {
+  background: #bdbdbd; /* abu */
+}
+
+.user-info h4 {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
+  color: #0a376e;
+}
+
+.user-info p {
+  margin: 2px 0 0;
+  font-size: 12px;
   color: #666;
 }
 
-/* ===== AREA CHAT UTAMA ===== */
-.chat-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background-color: #f7f8fc;
+.time {
+  font-size: 11px;
+  color: #999;
+  margin-left: auto;
 }
 
-/* ===== HEADER CHAT ===== */
-.chat-header {
-  background-color: #fff;
-  padding: 15px 25px;
-  border-bottom: 1px solid #ddd;
+/* Chat container */
+.chat-container {
+  width: 72%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  padding: 15px;
 }
 
-.chat-header h2 {
-  font-size: 18px;
-  color: #0c2b59;
-  margin: 0;
+.chat-header {
+  background: #f8fbff;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
 }
 
-/* ===== PESAN ===== */
 .chat-box {
-  flex: 1;
-  padding: 20px 40px;
+  flex-grow: 1;
   overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 15px;
 }
 
 .message {
-  max-width: 60%;
-  padding: 10px 15px;
-  border-radius: 15px;
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin: 8px 0;
   font-size: 14px;
-  line-height: 1.5;
-  word-wrap: break-word;
-  position: relative;
 }
 
 .from-user {
-  align-self: flex-end;
-  background-color: #0c2b59;
-  color: white;
-  border-bottom-right-radius: 5px;
+  background: #fff;
+  align-self: flex-start;
 }
 
 .from-konselor {
-  align-self: flex-start;
-  background-color: #ffffff;
-  color: #333;
-  border-bottom-left-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: #0a66c2;
+  color: white;
+  align-self: flex-end;
 }
 
-/* Waktu pengiriman */
-.message small {
-  display: block;
-  font-size: 11px;
-  color: #ccc;
-  margin-top: 5px;
-  text-align: right;
-}
-
-/* ===== FORM KIRIM PESAN ===== */
 .chat-form {
-  background-color: #fff;
   display: flex;
-  align-items: center;
-  padding: 10px 20px;
+  padding: 12px;
+  background: #fff;
   border-top: 1px solid #ddd;
+  border-radius: 25px;
 }
 
-.chat-form input[type="text"] {
+.chat-form input {
   flex: 1;
-  border: none;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
   outline: none;
-  padding: 12px 15px;
-  border-radius: 30px;
-  background-color: #f0f2f5;
-  font-size: 14px;
 }
 
 .chat-form button {
-  border: none;
-  background-color: #0c2b59;
-  color: white;
   margin-left: 10px;
-  padding: 10px 15px;
-  border-radius: 50%;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.chat-form button:hover {
-  background-color: #163b7a;
-}
-
-.loading {
-  text-align: center;
-  color: #aaa;
-  margin-top: 20px;
 }

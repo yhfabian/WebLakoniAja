@@ -76,7 +76,7 @@ $foto = !empty($konselor['foto']) ? 'uploads/' . $konselor['foto'] : 'assets/img
   <nav>
     <a href="#">TESTIMONI</a>
     <a href="form_jadwal.php" class="active">SCHEDULE</a>
-    <a href="#">CHAT</a>
+    <a href="chat.php">CHAT</a>
     <a href="dashboard.php">HOME</a>
   </nav>
   <div class="user">
