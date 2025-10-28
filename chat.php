@@ -12,7 +12,7 @@ $id_konselor = $_SESSION['id_konselor'];
 $nama_konselor = $_SESSION['nama'] ?? "Konselor";
 
 // Ambil ID sesi dari query (contoh: chat.php?id_sesi=1)
-$id_sesi = $_GET['id_sesi'] ?? 1;
+$id_sesi = $_GET['id_sesi'] ?? 2;
 ?>
 <!DOCTYPE html>
 <html lang="id">
