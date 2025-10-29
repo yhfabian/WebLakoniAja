@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'db.php'; // koneksi ke database
 
@@ -18,7 +19,6 @@ if (isset($_POST['login'])) {
     if (empty($password)) $errors[] = "Password harus diisi.";
 
     if (empty($errors)) {
-        // Gunakan prepared statement untuk keamanan
         $stmt = mysqli_prepare($conn, "SELECT * FROM admin WHERE username=? LIMIT 1");
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
@@ -26,17 +26,15 @@ if (isset($_POST['login'])) {
 
         if (mysqli_num_rows($result) === 1) {
             $admin = mysqli_fetch_assoc($result);
+            
 
-            // Verifikasi password
             if (password_verify($password, $admin['password'])) {
-    $_SESSION['id_admin']  = $admin['id_admin'];
-    $_SESSION['nama_admin'] = $admin['nama_lengkap']; // ubah dari ['nama'] ke ['nama_lengkap']
-    $_SESSION['role'] = 'admin';
+                $_SESSION['id_admin']  = $admin['id_admin'];
+                $_SESSION['nama_admin'] = $admin['nama_lengkap'];
+                $_SESSION['role'] = 'admin';
 
-    header("Location: dashboard_admin.php");
-    exit();
-}
-
+                header("Location: dashboard_admin.php");
+                exit();
             } else {
                 $errors[] = "Password salah.";
             }
@@ -45,6 +43,8 @@ if (isset($_POST['login'])) {
         }
         mysqli_stmt_close($stmt);
     }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -99,4 +99,5 @@ function togglePassword() {
 }
 </script>
 </body>
+<?php ob_end_flush(); ?>
 </html>
