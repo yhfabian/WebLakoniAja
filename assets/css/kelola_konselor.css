@@ -1,0 +1,154 @@
+/* kelola_konselor.css - tema mirip form_jadwal.css */
+
+:root {
+  --primary: #0056b3;
+  --primary-light: #007bff;
+  --bg: #f5f9ff;
+  --text: #333;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+}
+
+/* Navbar */
+.navbar-admin {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 18px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 100%;
+  background: white;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 10px rgba(255, 255, 255, 0.04);
+  padding-top: 70px;
+}
+
+.sidebar h5 {
+  text-align: center;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--text);
+  padding: 12px 18px;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #e7f1ff;
+  border-left: 4px solid var(--primary);
+  color: var(--primary);
+}
+
+/* Content */
+.content {
+  margin-left: 250px;
+  padding: 30px;
+}
+
+/* Card */
+.card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  padding: 20px;
+  border: none;
+}
+
+/* Table */
+.table thead {
+  background-color: var(--primary);
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #f2f6ff;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+}
+
+.btn-success {
+  background-color: #2ecc71;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #27ae60;
+}
+
+/* Alert */
+.alert {
+  border-radius: 8px;
+  padding: 12px 18px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-header.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.modal-header.bg-dark {
+  background-color: #333 !important;
+}
+
+.modal-footer button {
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  .sidebar a {
+    text-align: center;
+    font-size: 14px;
+  }
+  .content {
+    margin-left: 80px;
+  }
+}
