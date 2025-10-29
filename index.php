@@ -28,16 +28,36 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.php">Lakoni Aja</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-        <li class="nav-item"><a class="btn btn-primary ms-2" href="register.php">Daftar</a></li>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.php">Home</a>
+        </li>
+
+        <!-- Dropdown Login -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+            <li><a class="dropdown-item" href="login_admin.php">Login Admin</a></li>
+            <li><a class="dropdown-item" href="login.php">Login Konselor</a></li>
+          </ul>
+        </li>
+
+        <!-- Tombol daftar -->
+        <li class="nav-item">
+          <a class="btn btn-primary ms-2" href="register.php">Daftar Konselor</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-
 
 <!-- Hero Section -->
 <section class="hero text-center">
@@ -80,5 +100,10 @@
     </div>
   </div>
 </section>
+<!-- Tambahkan di bawah semua elemen, sebelum </body> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
 
 
