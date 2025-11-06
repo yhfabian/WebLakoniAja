@@ -55,7 +55,7 @@
       </p>
     </div>
     <div class="hero-image">
-      <img src="student.png" alt="Mahasiswa">
+      <img src="assets/img/mhs.png" alt="Mahasiswa">
     </div>
   </section>
 
