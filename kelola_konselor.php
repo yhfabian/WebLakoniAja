@@ -103,7 +103,7 @@ $konselor = mysqli_query($conn, "SELECT id_konselor, nama, username, bidang_keah
   <meta charset="UTF-8">
   <title>Kelola Konselor | Lakoni Aja</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/kelola_konselor.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/kelola_konselor.css?v=1.0">
 
 </head>
 <body>
@@ -122,11 +122,10 @@ $konselor = mysqli_query($conn, "SELECT id_konselor, nama, username, bidang_keah
 <!-- Sidebar -->
 <aside class="sidebar">
   <h5 class="text-center mb-4">Menu Admin</h5>
-  <a href="dashboard_admin.php">🏠 Dashboard</a>
-  <a href="kelola_konselor.php" class="active">👨‍🏫 Kelola Konselor</a>
-  <a href="kelola_user.php">👥 Kelola User</a>
-  <a href="kelola_jadwal.php">🗓️ Kelola Jadwal</a>
-  <a href="monitor_chat.php">💬 Monitor Chat</a>
+  <a href="dashboard_admin.php"> Dashboard</a>
+  <a href="kelola_konselor.php" class="active"> Kelola Konselor</a>
+  <a href="kelola_user.php"> Kelola User</a>
+  <a href="kelola_jadwal.php"> Kelola Jadwal</a>
 </aside>
 
 <!-- Content -->
@@ -262,7 +261,7 @@ $konselor = mysqli_query($conn, "SELECT id_konselor, nama, username, bidang_keah
                     </div>
                   </div>
                 </div>
-
+                
           <?php endwhile; else: ?>
               <tr><td colspan="6" class="text-center text-muted">Belum ada data konselor.</td></tr>
           <?php endif; ?>
@@ -273,6 +272,10 @@ $konselor = mysqli_query($conn, "SELECT id_konselor, nama, username, bidang_keah
 
   </div>
 </main>
+ <div class="footer">
+    <p>&copy; <?= date('Y') ?> Lakoni Aja - Sistem Konseling Polije</p>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

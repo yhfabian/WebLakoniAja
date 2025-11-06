@@ -1,47 +1,38 @@
-<?php include 'db.php'; ?>
+<?php
+// session_start(); // Jika dibutuhkan nanti
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Ruang Polije - Konseling</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body { font-family: Arial, sans-serif; }
-    .hero {
-      background: linear-gradient(to right, #e0f0ff, #ffffff);
-      padding: 60px 20px;
-    }
-    .hero h1 { font-weight: bold; color: #002B5B; }
-    .feature-card {
-      border-radius: 15px;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .feature-card h4 { color: #002B5B; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lakoni Aja</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/index.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<!-- Header / Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="index.php">Lakoni Aja</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.php">Home</a>
-        </li>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="assets/img/logo2.png" alt="Lakoni Aja Logo">
+      <h1>LAKONI AJA</h1>
+    </div>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
 
         <!-- Dropdown Login -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle login-dropdown" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Login
           </a>
           <ul class="dropdown-menu" aria-labelledby="loginDropdown">
@@ -49,61 +40,48 @@
             <li><a class="dropdown-item" href="login.php">Login Konselor</a></li>
           </ul>
         </li>
-
-        <!-- Tombol daftar -->
-        <li class="nav-item">
-          <a class="btn btn-primary ms-2" href="register.php">Daftar Konselor</a>
-        </li>
       </ul>
-    </div>
-  </div>
-</nav>
+    </nav>
+  </header>
 
-<!-- Hero Section -->
-<section class="hero text-center">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-7 text-start">
-        <h1>Ruang Aman Untuk Kesehatan Mental Mahasiswa</h1>
-        <p>Platform ini hadir sebagai ruang aman, nyaman, dan mudah diakses mahasiswa Polije untuk layanan konseling digital.</p>
-        
-      </div>
-      <div class="col-md-5">
-          <img src="assets/img/logo2.png" alt="Logo Polije" style="width:200px;">
-      </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>RUANG AMAN UNTUK<br>KESEHATAN MENTAL MAHASISWA</h2>
+      <h3>Politeknik Negeri Jember</h3>
+      <p>
+        Platform ini hadir sebagai ruang aman, nyaman, dan mudah diakses oleh mahasiswa Polije 
+        untuk mendapatkan layanan konseling secara digital sebagai pendukung kesehatan mental seorang mahasiswa.
+      </p>
     </div>
-  </div>
-</section>
+    <div class="hero-image">
+      <img src="student.png" alt="Mahasiswa">
+    </div>
+  </section>
 
-<!-- Fitur Section -->
-<section class="py-5 bg-light">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="feature-card">
-          <h4>Chat</h4>
-          <p>Curhat cepat tanpa sekat, aman dan nyaman setiap saat.</p>
-        </div>
+  <!-- SECTION TIPS -->
+  <section class="tips">
+    <h2>GIMANA SIH CARA JAGA KESEHATAN MENTAL?</h2>
+
+    <div class="tips-container">
+      <div class="tip-card">
+        <div class="icon">🕒</div>
+        <h3>Kelola Waktu Dengan Bijak</h3>
+        <p>Jadwal rapi, hati pun damai, stres berkurang fokus tercapai.</p>
       </div>
-      <div class="col-md-4">
-        <div class="feature-card">
-          <h4>Booking Konseling</h4>
-          <p>Jadwal konseling tercatat rapi dan otomatis sesuai aktivitas mahasiswa.</p>
-        </div>
+
+      <div class="tip-card">
+        <div class="icon">🧑‍🤝‍🧑</div>
+        <h3>Cerita Pada Orang Yang Tepat</h3>
+        <p>Berbagi cerita dengan konselor bijak, pikiran lega masalah pun menipis sekejap.</p>
       </div>
-      <div class="col-md-4">
-        <div class="feature-card">
-          <h4>Testimoni</h4>
-          <p>Bagikan pengalaman secara pribadi maupun umum, bangun dukungan positif.</p>
-        </div>
+
+      <div class="tip-card">
+        <div class="icon">❤️</div>
+        <h3>Rawat Diri Secara Konsisten</h3>
+        <p>Tidur cukup, makan teratur, olahraga ringan bikin jiwa selalu makmur.</p>
       </div>
     </div>
-  </div>
-</section>
-<!-- Tambahkan di bawah semua elemen, sebelum </body> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </section>
 </body>
 </html>
-
-
-

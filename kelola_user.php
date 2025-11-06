@@ -84,7 +84,7 @@ if (isset($_GET['cari'])) {
   <meta charset="UTF-8">
   <title>Kelola User | Lakoni Aja</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/kelola_user.css?v=4.0">
+  <link rel="stylesheet" href="assets/css/kelola_user.css?v=1.0">
 </head>
 <body>
 
@@ -102,11 +102,10 @@ if (isset($_GET['cari'])) {
 <!-- Sidebar -->
 <div class="sidebar">
   <h5 class="text-center mb-4">Menu Admin</h5>
-  <a href="dashboard_admin.php">🏠 Dashboard</a>
-  <a href="kelola_konselor.php">👨‍🏫 Kelola Konselor</a>
-  <a href="kelola_user.php" class="active">👥 Kelola User</a>
-  <a href="kelola_jadwal.php">🗓️ Kelola Jadwal</a>
-  <a href="monitor_chat.php">💬 Monitor Chat</a>
+  <a href="dashboard_admin.php"> Dashboard</a>
+  <a href="kelola_konselor.php"> Kelola Konselor</a>
+  <a href="kelola_user.php" class="active"> Kelola User</a>
+  <a href="kelola_jadwal.php"> Kelola Jadwal</a>
 </div>
 
 <!-- Content -->

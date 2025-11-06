@@ -38,11 +38,11 @@ $totalJadwal   = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS tota
 <!-- Sidebar -->
 <div class="sidebar">
   <h5 class="text-center mb-4">Menu Admin</h5>
-  <a href="dashboard_admin.php" class="active">🏠 Dashboard</a>
-  <a href="kelola_konselor.php">👨‍🏫 Kelola Konselor</a>
-  <a href="kelola_user.php">👥 Kelola User</a>
-  <a href="kelola_jadwal.php">🗓️ Kelola Jadwal</a>
-  <a href="monitor_chat.php">💬 Monitor Chat</a>
+  <a href="dashboard_admin.php" class="active"> Dashboard</a>
+  <a href="kelola_konselor.php"> Kelola Konselor</a>
+  <a href="kelola_user.php"> Kelola User</a>
+  <a href="kelola_jadwal.php"> Kelola Jadwal</a>
+
 </div>
 
 <!-- Content -->

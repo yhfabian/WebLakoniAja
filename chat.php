@@ -51,7 +51,7 @@ $result_users = mysqli_stmt_get_result($stmt);
     </div>
     <nav>
       <a href="dashboard.php">HOME</a>
-      <a href="form_jadwal.php">BOOKING</a>
+      <a href="form_jadwal.php">SCHEDULE</a>
       <a href="chat.php" class="active">CHAT</a>
       <a href="testimoni.php">TESTIMONI</a>
       <a href="logout.php">LOGOUT</a>

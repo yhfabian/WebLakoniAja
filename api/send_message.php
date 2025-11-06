@@ -2,16 +2,7 @@
 include 'config.php';
 header("Content-Type: application/json");
 
-$data = json_decode(file_get_contents("php://input"), true);  // Wajib ini
-if ($data === null) {
-    echo json_encode([
-        "status" => "error",
-        "message" => "JSON tidak terbaca.",
-        "raw_input" => file_get_contents("php://input")
-    ]);
-    exit;
-}
-
+$data = json_decode(file_get_contents("php://input"), true);
 
 $id_user     = $data['id_user'] ?? null;
 $id_konselor = $data['id_konselor'] ?? null;
@@ -33,7 +24,11 @@ $success = mysqli_stmt_execute($stmt);
 if ($success) {
     echo json_encode(["status" => "success", "message" => "Pesan terkirim"]);
 } else {
-    echo json_encode(["status" => "error", "message" => "Gagal menyimpan pesan"]);
+    echo json_encode([
+        "status" => "error",
+        "message" => "Gagal menyimpan pesan",
+        "error" => mysqli_error($conn)
+    ]);
 }
 
 mysqli_stmt_close($stmt);
