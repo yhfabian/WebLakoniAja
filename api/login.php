@@ -4,10 +4,10 @@ error_reporting(0);
 require_once __DIR__ . '/../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $login = isset($_POST['login']) ? $_POST['login'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    if ($username == '' || $password == '') {
+    if ($login == '' || $password == '') {
         echo json_encode([
             'success' => false,
             'message' => 'Field tidak boleh kosong'
@@ -15,10 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    $username = mysqli_real_escape_string($conn, $username);
+    $login = mysqli_real_escape_string($conn, $login);
 
-    // Ambil data user berdasarkan username (tabel 'user')
-    $query = "SELECT * FROM user WHERE username='$username'";
+    $query = "SELECT * FROM user WHERE username='$login' OR email='$login'";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {
@@ -32,12 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
 
-        // Cek password dengan bcrypt
         if (password_verify($password, $data['password'])) {
             echo json_encode([
                 'success' => true,
                 'message' => 'Login berhasil!',
-                'data' => [
+                'user' => [
                     'nama' => $data['nama'],
                     'username' => $data['username'],
                     'email' => $data['email']
@@ -52,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo json_encode([
             'success' => false,
-            'message' => 'Username tidak ditemukan!'
+            'message' => 'Username/Email tidak ditemukan!'
         ]);
     }
 } else {
