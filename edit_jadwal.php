@@ -2,145 +2,149 @@
 session_start();
 include 'db.php';
 
-// Pastikan admin sudah login
-if (!isset($_SESSION['id_admin'])) {
-    header("Location: login_admin.php");
-    exit();
+// Pastikan konselor sudah login
+if (!isset($_SESSION['id_konselor'])) {
+  header("Location: login.php");
+  exit();
 }
 
-$id_jadwal = $_GET['id'] ?? null;
+$id_konselor = $_SESSION['id_konselor'];
 
-if (!$id_jadwal) {
-    header("Location: kelola_jadwal.php");
-    exit();
-}
-
-// Ambil data jadwal berdasarkan ID
-$stmt = mysqli_prepare($conn, "
-    SELECT j.*, k.nama AS nama_konselor 
-    FROM jadwal j 
-    JOIN konselor k ON j.id_konselor = k.id_konselor 
-    WHERE j.id_jadwal = ?
-");
-mysqli_stmt_bind_param($stmt, "i", $id_jadwal);
+// Ambil data konselor
+$stmt = mysqli_prepare($conn, "SELECT nama, foto FROM konselor WHERE id_konselor = ?");
+mysqli_stmt_bind_param($stmt, "i", $id_konselor);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
-$jadwal = mysqli_fetch_assoc($result);
+$konselor = mysqli_fetch_assoc($result);
+
+$nama_konselor = $konselor['nama'] ?? 'Konselor';
+$foto = !empty($konselor['foto']) ? 'uploads/' . $konselor['foto'] : 'assets/img/user.png';
+
+// Ambil ID jadwal
+$id_jadwal = $_GET['id'] ?? null;
+if (!$id_jadwal) {
+  header("Location: form_jadwal.php");
+  exit();
+}
+
+// Ambil data jadwal
+$query = "SELECT * FROM jadwal WHERE id_jadwal = ? AND id_konselor = ?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "ii", $id_jadwal, $id_konselor);
+mysqli_stmt_execute($stmt);
+$jadwal = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
 
 if (!$jadwal) {
-    echo "<script>alert('Jadwal tidak ditemukan!'); window.location='kelola_jadwal.php';</script>";
-    exit();
+  header("Location: form_jadwal.php");
+  exit();
 }
 
-$success = $error = "";
+// Proses update
+$success_message = "";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $tanggal = $_POST['tanggal'];
+  $jam_mulai = $_POST['jam_mulai'];
+  $jam_selesai = $_POST['jam_selesai'];
+  $status = $_POST['status'];
 
-// Update data jadwal
-if (isset($_POST['update'])) {
-    $tanggal     = $_POST['tanggal'];
-    $jam_mulai   = $_POST['jam_mulai'];
-    $jam_selesai = $_POST['jam_selesai'];
-    $status      = $_POST['status'];
-
-    if (empty($tanggal) || empty($jam_mulai) || empty($jam_selesai)) {
-        $error = "Semua field wajib diisi.";
-    } else {
-        $stmt = mysqli_prepare($conn, "
-            UPDATE jadwal 
-            SET tanggal=?, jam_mulai=?, jam_selesai=?, status=? 
-            WHERE id_jadwal=?
-        ");
-        mysqli_stmt_bind_param($stmt, "ssssi", $tanggal, $jam_mulai, $jam_selesai, $status, $id_jadwal);
-        $updated = mysqli_stmt_execute($stmt);
-
-        if ($updated) {
-            $_SESSION['success'] = "Jadwal berhasil diperbarui!";
-            header("Location: kelola_jadwal.php");
-            exit();
-        } else {
-            $error = "Gagal memperbarui jadwal.";
-        }
-    }
+  $update = "UPDATE jadwal SET tanggal=?, jam_mulai=?, jam_selesai=?, status=? WHERE id_jadwal=?";
+  $stmt = mysqli_prepare($conn, $update);
+  mysqli_stmt_bind_param($stmt, "ssssi", $tanggal, $jam_mulai, $jam_selesai, $status, $id_jadwal);
+  
+  if (mysqli_stmt_execute($stmt)) {
+    $success_message = "✅ Jadwal berhasil diperbarui!";
+    $jadwal['tanggal'] = $tanggal;
+    $jadwal['jam_mulai'] = $jam_mulai;
+    $jadwal['jam_selesai'] = $jam_selesai;
+    $jadwal['status'] = $status;
+  } else {
+    $success_message = "❌ Gagal memperbarui jadwal.";
+  }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Edit Jadwal | Admin Panel</title>
-  <link rel="stylesheet" href="assets/css/kelola_jadwal.css?v=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Jadwal | LakoniAja</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS utama dan tambahan -->
+  <link rel="stylesheet" href="assets/css/styledashboard.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="assets/css/edit_jadwal.css?v=<?php echo time(); ?>">
 </head>
+
 <body>
+  <div class="dashboard-container">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold ms-3" href="#">Lakoni Aja | Admin</a>
-    <div class="ms-auto me-3 text-white fw-semibold">
-      <?= htmlspecialchars($_SESSION['nama_admin'] ?? 'Admin') ?> |
-      <a href="logout.php" class="btn btn-danger btn-sm">Logout</a>
-    </div>
-  </div>
-</nav>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/img/logo.png" alt="Lakoni Aja">
+        <h2>Lakoni<br>Aja</h2>
+      </div>
 
-<!-- Sidebar -->
-<div class="sidebar">
-  <h5 class="text-center mb-4">Menu Admin</h5>
-  <a href="dashboard_admin.php"> Dashboard</a>
-  <a href="kelola_konselor.php"> Kelola Konselor</a>
-  <a href="kelola_user.php"> Kelola User</a>
-  <a href="kelola_jadwal.php" class="active"> Kelola Jadwal</a>
-</div>
+      <nav class="menu">
+        <a href="dashboard_konselor.php">🏠<br>Dashboard</a>
+        <a href="form_jadwal.php" class="active">📅<br>Jadwal</a>
+        <a href="chat.php">💬<br>Chat</a>
+        <a href="testimoni.php">⭐<br>Testimoni</a>
+        <a href="logout.php" style="color:#ff4b5c;">🚪<br>Logout</a>
+      </nav>
+    </aside>
 
-<!-- Content -->
-<div class="content">
-  <div class="container mt-5">
-    <div class="card shadow-sm p-4">
-      <h3 class="text-primary mb-3">Edit Jadwal Konseling</h3>
+    <!-- Main Content -->
+    <main class="content">
+      <h1 class="title">Edit Jadwal</h1>
 
-      <?php if ($error): ?>
-        <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
-      <?php endif; ?>
+      <div class="edit-container">
+        <?php if (!empty($success_message)): ?>
+          <div class="alert-box"><?= htmlspecialchars($success_message) ?></div>
+        <?php endif; ?>
 
-      <form method="POST">
-        <div class="mb-3">
-          <label class="form-label">Nama Konselor</label>
-          <input type="text" class="form-control" value="<?= htmlspecialchars($jadwal['nama_konselor']) ?>" disabled>
-        </div>
+        <form method="POST" class="form-edit">
+          <label for="tanggal">Tanggal</label>
+          <input type="date" name="tanggal" id="tanggal" value="<?= htmlspecialchars($jadwal['tanggal']) ?>" required>
 
-        <div class="mb-3">
-          <label for="tanggal" class="form-label">Tanggal Konseling</label>
-          <input type="date" id="tanggal" name="tanggal" class="form-control" 
-                 value="<?= htmlspecialchars($jadwal['tanggal']) ?>" required>
-        </div>
+          <label for="jam_mulai">Jam Mulai</label>
+          <input type="time" name="jam_mulai" id="jam_mulai" value="<?= htmlspecialchars($jadwal['jam_mulai']) ?>" required>
 
-        <div class="mb-3">
-          <label for="jam_mulai" class="form-label">Jam Mulai</label>
-          <input type="time" id="jam_mulai" name="jam_mulai" class="form-control" 
-                 value="<?= htmlspecialchars($jadwal['jam_mulai']) ?>" required>
-        </div>
+          <label for="jam_selesai">Jam Selesai</label>
+          <input type="time" name="jam_selesai" id="jam_selesai" value="<?= htmlspecialchars($jadwal['jam_selesai']) ?>" required>
 
-        <div class="mb-3">
-          <label for="jam_selesai" class="form-label">Jam Selesai</label>
-          <input type="time" id="jam_selesai" name="jam_selesai" class="form-control" 
-                 value="<?= htmlspecialchars($jadwal['jam_selesai']) ?>" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="status" class="form-label">Status</label>
-          <select id="status" name="status" class="form-select" required>
-            <option value="Tersedia" <?= ($jadwal['status'] == 'Tersedia') ? 'selected' : '' ?>>Tersedia</option>
-            <option value="Dipesan" <?= ($jadwal['status'] == 'Dipesan') ? 'selected' : '' ?>>Dipesan</option>
-            <option value="Selesai" <?= ($jadwal['status'] == 'Selesai') ? 'selected' : '' ?>>Selesai</option>
+          <label for="status">Status</label>
+          <select name="status" id="status" required>
+            <option value="tersedia" <?= $jadwal['status'] == 'tersedia' ? 'selected' : '' ?>>Tersedia</option>
+            <option value="penuh" <?= $jadwal['status'] == 'penuh' ? 'selected' : '' ?>>Penuh</option>
           </select>
-        </div>
 
-        <button type="submit" name="update" class="btn btn-primary">Simpan Perubahan</button>
-        <a href="kelola_jadwal.php" class="btn btn-secondary">Kembali</a>
-      </form>
-    </div>
+          <div class="form-buttons">
+            <button type="submit" class="btn-save">💾 Simpan Perubahan</button>
+            <a href="form_jadwal.php" class="btn-back">← Kembali</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Right Panel -->
+    <aside class="right-panel">
+      <div class="profile-card">
+        <img src="<?= htmlspecialchars($foto) ?>" class="profile-img" alt="Profile">
+        <h3><?= htmlspecialchars($nama_konselor) ?></h3>
+        <p class="email">Konselor Polije</p>
+      </div>
+
+      <div class="reminder-card">
+        <h4>CATATAN</h4>
+        <p class="title">Pastikan jadwal sudah diperbarui!</p>
+        <span class="desc">Ubah hanya jika jadwal berubah atau ada pembatalan.</span>
+      </div>
+    </aside>
+
   </div>
-</div>
-
 </body>
 </html>

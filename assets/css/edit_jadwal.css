@@ -1,0 +1,64 @@
+.edit-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+}
+
+.form-edit label {
+  font-weight: 600;
+  display: block;
+  margin-top: 15px;
+}
+
+.form-edit input,
+.form-edit select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d0e0f0;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.btn-save,
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-save {
+  background: #0095ff;
+  color: white;
+  border: none;
+}
+
+.btn-save:hover {
+  background: #0078d7;
+}
+
+.btn-back {
+  background: #f3f3f3;
+  color: #333;
+  margin-left: 10px;
+}
+
+.btn-back:hover {
+  background: #e0e0e0;
+}
+
+.alert-box {
+  background: #e9f9ee;
+  color: #1b7b2e;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}

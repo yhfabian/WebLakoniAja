@@ -1,156 +1,133 @@
-body {
-  background: #D9EEFF;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  color: #04335E;
-}
+/* === STYLE UNTUK FORM EDIT JADWAL === */
 
-/* ===== NAVBAR ===== */
-.navbar {
+.edit-container {
   background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 50px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-.logo {
-  display: flex;
-  align-items: center;
-}
-.logo img {
-  height: 45px;
-  margin-right: 10px;
-}
-.logo h2 {
-  font-weight: 700;
-  color: #04335E;
-}
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #04335E;
-  font-weight: 600;
-}
-nav a.active {
-  border-bottom: 3px solid #04335E;
-  padding-bottom: 3px;
-}
-.user {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.user img {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-}
-
-/* ===== CONTENT ===== */
-.content {
-  padding: 40px 60px;
-}
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 25px;
-}
-
-/* ===== SEARCH ===== */
-.search-box {
-  margin-bottom: 30px;
-}
-.search-box input {
-  width: 100%;
+  border-radius: 20px;
+  padding: 40px;
   max-width: 700px;
-  border: none;
-  border-radius: 40px;
-  padding: 14px 25px;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin: 40px auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* ===== CARD LAYOUT ===== */
-.container {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-.card {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 25px;
-  flex: 1;
-  min-width: 340px;
-}
-
-/* Profil Konselor */
-.card.profile {
+.edit-container h2 {
   text-align: center;
-  max-width: 350px;
-}
-.card.profile img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-.card.profile h2 {
+  color: #007aff;
+  margin-bottom: 25px;
   font-weight: 700;
-  margin-bottom: 5px;
-}
-.card.profile p {
-  font-size: 18px;
-  color: #003366;
 }
 
-/* Form Jadwal */
-.card.schedule h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #04335E;
-  margin-bottom: 15px;
-}
 form label {
-  font-weight: 600;
   display: block;
-  margin: 8px 0 5px;
-}
-form input,
-form select {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 12px;
-}
-form button {
-  background: #04335E;
-  color: #fff;
   font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-save {
+  background: #007aff;
+  color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-save:hover {
+  background: #005fcb;
+}
+
+.btn-back {
+  text-decoration: none;
+  background: #ccc;
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #999;
+  color: white;
+}
+
+/* === NOTIFIKASI SUCCESS / ERROR === */
+.alert-box {
+  background-color: #e6f9e8;
+  color: #107c10;
+  border-left: 6px solid #22b14c;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+}
+
+.alert-box.error {
+  background-color: #ffeaea;
+  color: #b71c1c;
+  border-left-color: #f44336;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* === STYLE UNTUK FORM EDIT / TAMBAH JADWAL === */
+.edit-form {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edit-form label {
+  display: block;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 6px;
+}
+
+.edit-form input,
+.edit-form select {
+  width: 100%;
+  padding: 10px;
   border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-submit {
+  background: #004aad;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
-form button:hover {
-  background: #022B4C;
-}
 
-/* Alerts */
-.alert {
-  background: #ffe0e0;
-  color: #a00;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-.alert.success {
-  background: #e6ffe6;
-  color: #008000;
+.btn-submit:hover {
+  background: #007bff;
 }

@@ -1,36 +1,59 @@
 <?php
-include 'config.php';
+header("Access-Control-Allow-Origin: http://localhost");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
 
-$data = json_decode(file_get_contents("php://input"), true);
-
-$id_user     = $data['id_user'] ?? null;
-$id_konselor = $data['id_konselor'] ?? null;
-$id_sesi     = $data['id_sesi'] ?? null;
-$pesan       = trim($data['pesan'] ?? '');
-
-if (empty($pesan)) {
-    echo json_encode(["status" => "error", "message" => "Pesan kosong."]);
-    exit;
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
 }
+require_once __DIR__ . '/../db.php';
 
-$stmt = mysqli_prepare($conn,
-    "INSERT INTO chat (id_user, id_konselor, id_sesi, pesan, waktu_kirim)
-     VALUES (?, ?, ?, ?, NOW())"
-);
-mysqli_stmt_bind_param($stmt, "iiis", $id_user, $id_konselor, $id_sesi, $pesan);
-$success = mysqli_stmt_execute($stmt);
-
-if ($success) {
-    echo json_encode(["status" => "success", "message" => "Pesan terkirim"]);
-} else {
-    echo json_encode([
-        "status" => "error",
-        "message" => "Gagal menyimpan pesan",
-        "error" => mysqli_error($conn)
-    ]);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Menggunakan koneksi dari db.php yang sudah ada
+    $conn = $GLOBALS['conn'];
+    
+    $input = json_decode(file_get_contents("php://input"), true);
+    
+    if(!empty($input['id_user']) && !empty($input['id_konselor']) && 
+       !empty($input['id_sesi']) && !empty($input['pesan'])) {
+        
+        try {
+            $query = "INSERT INTO chat (id_user, id_konselor, id_sesi, pesan, waktu_kirim) 
+                     VALUES (?, ?, ?, ?, NOW())";
+            
+            $stmt = $conn->prepare($query);
+            
+            // Bind parameters dengan tipe data yang sesuai
+            $stmt->bind_param("iiis", 
+                $input['id_user'], 
+                $input['id_konselor'], 
+                $input['id_sesi'], 
+                $input['pesan']
+            );
+            
+            if($stmt->execute()) {
+                echo json_encode([
+                    "status" => "success",
+                    "message" => "Pesan terkirim",
+                    "id_chat" => $conn->insert_id
+                ]);
+            } else {
+                throw new Exception($stmt->error);
+            }
+            
+        } catch(Exception $e) {
+            echo json_encode([
+                "status" => "error",
+                "message" => "Gagal mengirim: " . $e->getMessage()
+            ]);
+        }
+    } else {
+        echo json_encode([
+            "status" => "error",
+            "message" => "Data tidak lengkap"
+        ]);
+    }
 }
-
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
 ?>

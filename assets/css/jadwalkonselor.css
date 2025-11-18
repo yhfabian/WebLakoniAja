@@ -1,0 +1,323 @@
+/* =========================================
+   RESET & DASAR
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #d9ecff;
+  color: #333;
+}
+
+/* =========================================
+   CONTAINER UTAMA
+========================================= */
+.container {
+  padding: 40px 60px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.header-section h2 {
+  font-weight: 700;
+  color: #0b3d91;
+}
+
+/* =========================================
+   SEARCH BOX
+========================================= */
+.search-box {
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 5px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px;
+  width: 240px;
+}
+
+.btn-add {
+  background-color: #0095ff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-add:hover {
+  background-color: #0066e4;
+  transform: scale(1.05);
+}
+
+/* =========================================
+   LAYOUT KONTEN
+========================================= */
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+/* =========================================
+   CARD UMUM
+========================================= */
+.card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 25px;
+}
+
+/* =========================================
+   CARD KONSELOR
+========================================= */
+.konselor {
+  flex: 1;
+  text-align: center;
+}
+
+.konselor h3 {
+  color: #0b3d91;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.konselor .profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;     /* Fix agar benar-benar bulat */
+  object-fit: cover;      /* Tidak lonjong */
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #0b3d91;
+  font-size: 18px;
+}
+
+/* =========================================
+   CARD JADWAL
+========================================= */
+.jadwal {
+  flex: 2;
+}
+
+.jadwal h3 {
+  color: #0b3d91;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* FILTER */
+.filter-jadwal {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filter-jadwal select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* =========================================
+   LIST JADWAL
+========================================= */
+.jadwal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px;
+  border-bottom: 1px solid #e1e1e1;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: 0.2s ease;
+}
+
+.jadwal-item:hover {
+  background-color: #f5f9ff;
+  transform: translateX(4px);
+}
+
+/* STATUS */
+.status-label {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  min-width: 80px;
+  text-align: center;
+}
+
+.status-label.tersedia {
+  background-color: #d7f8df;
+  color: #0b7a27;
+  border: 1px solid #0b7a27;
+}
+
+.status-label.dipesan {
+  background-color: #e0e0e0;
+  color: #555;
+  border: 1px solid #aaa;
+}
+
+.status-label.selesai {
+  background-color: #e0f0ff;
+  color: #0b3d91;
+  border: 1px solid #0b3d91;
+}
+
+/* =========================================
+   POPUP
+========================================= */
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 350px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-content h3 {
+  color: #0b3d91;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.popup-content label {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.popup-content input,
+.popup-content select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-save {
+  background: #0095ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #ccc;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================================
+   BUTTON KEMBALI
+========================================= */
+.btn-back {
+  display: inline-block;
+  background: #0b3d91;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 20px;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #062a66;
+}
+
+/* =========================================
+   TOAST SUKSES
+========================================= */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  font-weight: 600;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.toast.hide {
+  opacity: 0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  
+  .search-box input {
+    width: 150px;
+  }
+
+  .popup-content {
+    width: 90%;
+  }
+}

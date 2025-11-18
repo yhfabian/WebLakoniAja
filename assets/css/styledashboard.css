@@ -1,294 +1,351 @@
-/* Pengaturan Dasar & Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+/* === RESET & FONT === */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #EBF5FF; /* Warna latar belakang biru muda */
+  background: #e9f4ff;
+  color: #1a1a1a;
+  overflow: hidden;
 }
 
-/* Navigasi Atas */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #004A7C; /* Biru tua */
-    color: white;
-    padding: 10px 40px;
-    height: 70px;
+/* === LAYOUT UTAMA === */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 90px 1fr 320px;
+  height: 100vh;
 }
 
-.navbar-left {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    font-size: 1.2rem;
+/* === SIDEBAR === */
+.sidebar {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 10px;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
 }
 
 .logo {
-    height: 45px;
-    width: 45px;
-    background-color: #fff; /* Placeholder jika gambar tidak ada */
-    border-radius: 50%;
-    margin-right: 10px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.navbar-right {
-    display: flex;
-    align-items: center;
+.logo img {
+  width: 45px;
+  margin-bottom: 8px;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin-right: 30px;
+.logo h2 {
+  font-size: 14px;
+  line-height: 1.2;
+  color: #007aff;
 }
 
-.nav-links li {
-    margin: 0 15px;
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding-bottom: 5px;
+.menu img {
+  width: 28px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.nav-links a.active {
-    border-bottom: 3px solid white;
-    font-weight: 700;
+.menu img:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-.user-profile-nav {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
+/* Link di menu sidebar */
+.menu a {
+  text-decoration: none;
+  color: #007aff;
+  font-size: 12px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.user-profile-nav .avatar {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background-color: #ccc; /* Placeholder */
-    margin: 0 10px;
+.menu a.active {
+  background: #0095ff;
+  color: white;
+  font-weight: 600;
 }
 
-.notification-icon {
-    font-size: 1.5rem;
-    background-color: #003355; /* Lingkaran biru lebih gelap */
-    padding: 10px;
-    border-radius: 50%;
+.menu a:hover {
+  background: #e9f4ff;
+  color: #0095ff;
 }
 
-/* Kontainer Utama */
-.dashboard-container {
-    display: flex;
-    padding: 30px 40px;
-    gap: 30px;
+/* === MAIN CONTENT === */
+.content {
+  padding: 40px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0095ff #e9f4ff;
 }
 
-/* Gaya Kartu Umum */
-.card {
-    background-color: #FFFFFF;
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+.content::-webkit-scrollbar-thumb {
+  background-color: #0095ff;
+  border-radius: 10px;
 }
 
-/* Kolom Kiri / Sidebar */
-.sidebar {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
 }
 
-.profile-card {
-    text-align: center;
+.title span {
+  color: #0095ff;
 }
 
-.profile-pic-main {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: #ccc; /* Placeholder */
-    margin-bottom: 15px;
-    border: 3px solid #EBF5FF;
+/* === MAIN DASHBOARD === */
+.main-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
 }
 
-.profile-card h2 {
-    font-size: 1.8rem;
-    color: #333;
+/* --- Welcome Card --- */
+.welcome-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0095ff;
+  color: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
-.profile-card p {
-    color: #888;
-    font-style: italic;
-    font-size: 1rem;
+.welcome-card:hover {
+  transform: translateY(-5px);
 }
 
-/* Pelacak Mood */
-.mood-tracker {
-    display: flex;
-    height: 300px;
+.welcome-card h3 {
+  font-size: 20px;
 }
 
-.mood-labels {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: right;
-    padding-right: 10px;
-    font-size: 0.7rem;
-    color: #999;
-    font-weight: 600;
+.welcome-card p {
+  margin-top: 6px;
+  opacity: 0.9;
 }
 
-.chart-area {
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    border-left: 2px solid #f0f0f0;
-    border-bottom: 2px solid #f0f0f0;
-    padding-left: 10px;
+.add-btn {
+  background: white;
+  border: none;
+  color: #0095ff;
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.bar-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    justify-content: flex-end;
+.add-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.welcome-illustration img {
+  width: 100px;
+}
+
+/* --- Result Card --- */
+.result-card {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.chart {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
 }
 
 .bar {
-    width: 18px;
-    background-color: #004A7C;
-    border-radius: 5px 5px 0 0;
+  flex: 1;
+  height: 6px;
+  border-radius: 5px;
 }
 
-.bar-group span {
-    font-size: 0.7rem;
-    color: #999;
-    font-weight: 600;
-    margin-top: 8px;
+.blue { background: #0095ff; }
+.green { background: #00d084; }
+.yellow { background: #ffb700; }
+
+/* === MENU CARDS === */
+.menu-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
-/* Konten Utama (Kanan) */
-.main-content {
-    flex: 2.5;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.card {
+  background: #ffffff;
+  width: 160px;
+  height: 120px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* Kartu Cepat (Kosong) */
-.quick-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.empty-card {
-    height: 160px;
+.card img {
+  width: 40px;
+  margin-bottom: 10px;
 }
 
-/* Testimoni */
-.testimonials h3 {
-    color: #555;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 20px;
+/* === CALENDAR CARD === */
+.calendar-card {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-.testimonial-item {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f0f0f0;
+.calendar-card h3 {
+  color: #003366;
+  margin-bottom: 15px;
 }
 
-.testimonial-item:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+/* === RIGHT PANEL === */
+.right-panel {
+  background: #f9fcff;
+  padding: 30px;
+  border-left: 1px solid #dbe8f5;
+  overflow-y: auto;
 }
 
-.author-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.profile-card {
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
-.avatar-small {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #ccc; /* Placeholder */
-    margin-right: 15px;
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 12px;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
-.author-info h4 {
-    font-size: 1rem;
-    color: #333;
+.profile-img:hover {
+  transform: scale(1.05);
 }
 
-.testimonial-item p {
-    font-size: 0.9rem;
-    color: #555;
-    margin-left: 60px; /* Sejajar dengan teks di atas */
-    margin-bottom: 10px;
+.profile-card h3 {
+  color: #003366;
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
-.actions {
-    display: flex;
-    gap: 20px;
-    color: #888;
-    font-size: 0.9rem;
-    margin-left: 60px;
+.profile-card .email {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
 
-.actions span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.actions i {
-    color: #004A7C;
-}
-.btn-edit {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  background-color: #0066cc;
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-.btn-edit:hover {
-  background-color: #004c99;
-}
 .logout-btn {
-  background-color: #d9534f;
+  display: inline-block;
+  background: #ff4b5c;
   color: white;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 14px;
-  margin-left: 10px;
-  transition: background 0.3s ease;
+  transition: 0.3s;
 }
 
 .logout-btn:hover {
-  background-color: #b52b27;
+  background: #e63b4d;
+}
+
+/* === REMINDER CARD === */
+.reminder-card {
+  background: #e9f4ff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.reminder-card h4 {
+  text-transform: uppercase;
+  color: #999;
+  font-size: 11px;
+}
+
+.reminder-card .title {
+  font-size: 14px;
+  color: #0a2a57;
+  margin: 8px 0;
+  font-weight: 600;
+}
+
+.reminder-card .desc {
+  font-size: 12px;
+  color: #333;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 992px) {
+  .dashboard-container {
+    grid-template-columns: 70px 1fr;
+  }
+
+  .right-panel {
+    display: none;
+  }
+
+  .menu-cards {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .main-dashboard {
+    grid-template-columns: 1fr;
+  }
 }
