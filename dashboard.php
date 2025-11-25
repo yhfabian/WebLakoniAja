@@ -47,7 +47,7 @@ $foto = !empty($konselor['foto'])
 
       <nav class="menu">
         <a href="dashboard_konselor.php" class="active">🏠<br>Dashboard</a>
-        <a href="jadwalkonselor.php">📅<br>Jadwal</a>
+        <a href="jadwalkonselor.php">🖥<br>Jadwal</a>
         <a href="chat.php">💬<br>Chat</a>
         <a href="testimoni.php">⭐<br>Testimoni</a>
         <a href="logout.php" style="color:#ff4b5c;">🚪<br>Logout</a>
@@ -82,18 +82,9 @@ $foto = !empty($konselor['foto'])
 
       <!-- Menu Cards -->
       <div class="menu-cards">
-        <div class="card" onclick="window.location.href='rekamedis.php'">
+        <div class="card" onclick="window.location.href='rekam_medis.php'">
           <img src="https://cdn-icons-png.flaticon.com/512/4305/4305456.png" alt="rekamedis">
           <p>Reka Medis</p>
-        </div>
-        <div class="card" onclick="window.location.href='mood.php'">
-          <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="mood">
-          <p>Penambah Mood</p>
-        </div>
-       <div class="card" onclick="window.location.href='jadwalkonselor.php'">
-
-          <img src="https://cdn-icons-png.flaticon.com/512/2947/2947990.png" alt="jadwal">
-          <p>Jadwal Saya</p>
         </div>
       </div>
 
