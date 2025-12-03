@@ -8,75 +8,102 @@ if (!isset($_SESSION['id_admin'])) {
     exit();
 }
 
-// Ambil data statistik
-$totalKonselor = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM konselor"))['total'];
-$totalUser     = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM user"))['total'];
-$totalJadwal   = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM jadwal"))['total'];
+// ==============================
+//     AMBIL DATA DARI DATABASE
+// ==============================
+
+// Total user
+$totalUser = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(*) AS total FROM user")
+)['total'];
+
+// Total konselor
+$totalKonselor = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(*) AS total FROM konselor")
+)['total'];
+
+// Total jadwal
+$totalJadwal = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(*) AS total FROM jadwal")
+)['total'];
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard Admin | Lakoni Aja</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/dashboard_admin.css?v=1.0">
+    <meta charset="UTF-8">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="assets/css/dashboard_admin.css?v=<?php echo time(); ?>">
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold ms-3" href="#">Lakoni Aja | Admin</a>
-    <div class="ms-auto me-3 text-white fw-semibold">
-      <?= htmlspecialchars($_SESSION['nama_admin'] ?? 'Admin') ?> |
-      <a href="logout.php" class="btn btn-danger btn-sm">Logout</a>
-    </div>
-  </div>
-</nav>
-
-<!-- Sidebar -->
 <div class="sidebar">
-  <h5 class="text-center mb-4">Menu Admin</h5>
-  <a href="dashboard_admin.php" class="active"> Dashboard</a>
-  <a href="kelola_konselor.php"> Kelola Konselor</a>
-  <a href="kelola_user.php"> Kelola User</a>
-  <a href="kelola_jadwal.php"> Kelola Jadwal</a>
-
-</div>
-
-<!-- Content -->
-<div class="content">
-  <div class="container-fluid mt-4">
-    <h2 class="fw-bold text-primary mb-4">Dashboard Admin</h2>
-
-    <div class="row text-center g-4">
-      <div class="col-md-4">
-        <div class="card card-stat p-3">
-          <h5>Total Konselor</h5>
-          <h3><?= $totalKonselor ?></h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-stat p-3">
-          <h5>Total Mahasiswa</h5>
-          <h3><?= $totalUser ?></h3>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-stat p-3">
-          <h5>Total Jadwal</h5>
-          <h3><?= $totalJadwal ?></h3>
-        </div>
-      </div>
+    <div class="list_sidebar">
+        <h2>Dashboard Admin</h2>
+        <a href="dashboard_admin.php" class="active">📊 Dashboard</a>
+        <a href="kelola_user.php">👤 Kelola User</a>
+        <a href="kelola_konselor.php">🧑‍⚕️ Kelola Konselor</a>
+        <a href="kelola_jadwal.php">📅 Kelola Jadwal</a>
     </div>
-  </div>
 
-  <div class="footer">
-    <p>&copy; <?= date('Y') ?> Lakoni Aja - Sistem Konseling Polije</p>
-  </div>
+    <div class="keluar">
+        <a href="logout.php" class="logout">Logout</a>
+    </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="content">
+    
+    <div class="header-bar">
+        <div class="Title">
+            <h2>Lakoni Aja</h2>
+        </div>
+
+        <div class="user-profile">
+            <span>Admin Petugas</span>
+            <div class="avatar">A</div>
+        </div>
+    </div>
+
+    <h1>Dashboard</h1>
+    <p class="subtitle">Selamat datang di panel admin konseling</p>
+
+    <div class="card-container">
+
+        <!-- Card Total User -->
+        <div class="card">
+            <div>
+                <h3>Total User</h3>
+                <div class="value"><?= $totalUser ?></div>
+            </div>
+            <div class="card-icon">👥</div>
+        </div>
+
+        <!-- Card Total Konselor -->
+        <div class="card">
+            <div>
+                <h3>Total Konselor</h3>
+                <div class="value"><?= $totalKonselor ?></div>
+            </div>
+            <div class="card-icon">🧠</div>
+        </div>
+
+        <!-- Card Total Jadwal -->
+        <div class="card">
+            <div>
+                <h3>Jadwal Aktif</h3>
+                <div class="value"><?= $totalJadwal ?></div>
+            </div>
+            <div class="card-icon">📅</div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Lakoni Aja - Sistem Konseling Polije</p>
+    </footer>
+
+</div>
+
 </body>
 </html>

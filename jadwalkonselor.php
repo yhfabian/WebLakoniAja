@@ -82,10 +82,45 @@ if (isset($_GET['error'])) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="assets/css/jadwalkonselor.css?v=<?php echo time(); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body>
 
-  <a href="dashboard.php" class="btn-back">← Kembali ke Dashboard</a>
+  <div class="sidebar">
+
+    <div>
+        <a href="dashboard.php" class="item icon top">
+            <i class="ri-home-5-line"></i>
+        </a>
+    </div>
+
+    <div class="menu">
+        <a href="jadwalkonselor.php" class="item active">
+            <i class="ri-calendar-event-line"></i>
+        </a>
+        <a href="chat.php" class="item">
+            <i class="ri-message-3-line"></i>
+        </a>
+        <a href="testimoni.php" class="item">
+            <i class="ri-chat-smile-3-line"></i>
+        </a>
+        <a href="rekam_medis.php" class="item">
+            <i class="ri-file-list-3-line"></i>
+        </a>
+        <a href="artikel.php" class="item">
+            <i class="ri-article-line"></i>
+        </a>
+    </div>
+
+    <div>
+        <a href="logout.php" class="icon bottom">
+        <i class="ri-logout-circle-r-line"></i>
+        </a>
+    </div>
+
+</div>
+
+<div class="main-content">
 
   <?php if (!empty($successMessage)): ?>
     <div class="toast"><?= htmlspecialchars($successMessage) ?></div>
@@ -100,7 +135,7 @@ if (isset($_GET['error'])) {
     <div class="header-section">
       <h2>LAYANAN KONSELING</h2>
       <div class="search-box">
-        <input type="text" id="search" placeholder="Cari jadwal (contoh: Senin, 10:00, 2025-11-18)">
+        <input type="text" id="search" placeholder="Cari jadwal (contoh: Monday, 10:00, 2025-11-18)">
         <button id="addBtn" class="btn-add">+</button>
       </div>
     </div>
@@ -109,7 +144,7 @@ if (isset($_GET['error'])) {
       <div class="card konselor">
         <h3><?= htmlspecialchars($nama_konselor) ?></h3>
         <img src="<?= htmlspecialchars($foto) ?>" alt="Foto Konselor" class="profile-img">
-        <p class="stars">★★★★★</p>
+        <p class="stars">konselor</p>
       </div>
 
       <div class="card jadwal">
@@ -163,6 +198,7 @@ if (isset($_GET['error'])) {
           <?php endif; ?>
         </div>
       </div>
+    </div>
     </div>
   </section>
 

@@ -24,7 +24,7 @@ SELECT
 
     u.nama AS nama_user,
     u.nim AS nim_user,
-    u.kelas AS kelas_user,
+    u.email AS email_user,
 
     k.nama AS nama_konselor
 FROM monitoring m

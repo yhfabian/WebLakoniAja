@@ -1,4 +1,4 @@
-/* === RESET & FONT === */
+/* === RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,6 @@ body {
   overflow: hidden;
 }
 
-/* === LAYOUT UTAMA === */
 .dashboard-container {
   display: grid;
   grid-template-columns: 90px 1fr 320px;
@@ -21,85 +20,82 @@ body {
 
 /* === SIDEBAR === */
 .sidebar {
-  background: #ffffff;
+  width: 100px;
+  height: 93vh;
+  background: #478cd2;
+  border-radius: 20px;
+  padding: 25px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px 10px;
-  border-radius: 0 30px 30px 0;
-  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.25);
+  margin-left: 10px;
+  margin-top: 40px;
 }
 
-.logo {
-  text-align: center;
-  margin-bottom: 40px;
+.sidebar .icon i {
+  font-size: 28px;
+  color: #BBDEFB;
+  transition: 0.25s;
+  padding: 12px;
+  border-radius: 50%;
 }
 
-.logo img {
-  width: 45px;
-  margin-bottom: 8px;
-}
-
-.logo h2 {
-  font-size: 14px;
-  line-height: 1.2;
-  color: #007aff;
+.sidebar .icon i:hover {
+  background: #003366;
+  color: white;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 18px;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.08);
+  padding: 18px 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px);
 }
 
-.menu img {
-  width: 28px;
-  opacity: 0.7;
-  cursor: pointer;
-  transition: 0.3s;
+.item {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.12);
+  color: #E3F2FD;
+  font-size: 22px;
+  transition: 0.25s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.25);
 }
 
-.menu img:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* Link di menu sidebar */
-.menu a {
-  text-decoration: none;
-  color: #007aff;
-  font-size: 12px;
-  text-align: center;
-  padding: 6px 0;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.menu a.active {
-  background: #0095ff;
+.item:hover {
+  background: #1976D2;
   color: white;
-  font-weight: 600;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.35);
 }
 
-.menu a:hover {
-  background: #e9f4ff;
-  color: #0095ff;
-}
+.item.active {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
 
-/* === MAIN CONTENT === */
+  /* efek timbul sama seperti hover, tapi sedikit lebih kuat */
+  box-shadow: 
+      0 4px 10px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 rgba(255,255,255,0.2);
+
+  transform: translateY(-2px);
+  transition: 0.25s;
+}
+/* === CONTENT === */
 .content {
   padding: 40px;
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #0095ff #e9f4ff;
-}
-
-.content::-webkit-scrollbar {
-  width: 6px;
-}
-.content::-webkit-scrollbar-thumb {
-  background-color: #0095ff;
-  border-radius: 10px;
 }
 
 .title {
@@ -112,151 +108,96 @@ body {
   color: #0095ff;
 }
 
-/* === MAIN DASHBOARD === */
+/* === TOP CARDS (2 kolom seimbang) === */
 .main-dashboard {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
-/* --- Welcome Card --- */
+/* WELCOME CARD */
 .welcome-card {
+  background: #0095ff;
+  color: white;
+  padding: 35px;
+  border-radius: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0095ff;
-  color: white;
-  padding: 30px;
-  border-radius: 25px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-}
-
-.welcome-card:hover {
-  transform: translateY(-5px);
+  height: 180px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .welcome-card h3 {
-  font-size: 20px;
-}
-
-.welcome-card p {
-  margin-top: 6px;
-  opacity: 0.9;
+  font-size: 22px;
 }
 
 .add-btn {
   background: white;
   border: none;
+  font-size: 22px;
   color: #0095ff;
-  font-size: 20px;
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  margin-top: 15px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.add-btn:hover {
-  transform: scale(1.1);
-  opacity: 0.9;
-}
-
-.welcome-illustration img {
-  width: 100px;
-}
-
-/* --- Result Card --- */
-.result-card {
+/* REKAM MEDIS CARD — MATCH HEIGHT */
+.rm-card {
   background: #ffffff;
+  padding: 35px;
   border-radius: 25px;
-  padding: 25px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-.chart {
-  margin-top: 15px;
+  height: 180px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.chart-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-}
-
-.bar {
-  flex: 1;
-  height: 6px;
-  border-radius: 5px;
-}
-
-.blue { background: #0095ff; }
-.green { background: #00d084; }
-.yellow { background: #ffb700; }
-
-/* === MENU CARDS === */
-.menu-cards {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.card {
-  background: #ffffff;
-  width: 160px;
-  height: 120px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
-.card:hover {
+.rm-card:hover {
   transform: translateY(-5px);
 }
 
-.card img {
-  width: 40px;
-  margin-bottom: 10px;
+.rm-card img {
+  width: 70px;
+  height: 70px;
 }
 
-/* === CALENDAR CARD === */
+.rm-card p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #003366;
+}
+
+/* === CALENDAR === */
 .calendar-card {
   background: #ffffff;
+  padding: 25px;
   border-radius: 25px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-.calendar-card h3 {
-  color: #003366;
-  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  grid-column: span 2;
 }
 
 /* === RIGHT PANEL === */
 .right-panel {
   background: #f9fcff;
   padding: 30px;
-  border-left: 1px solid #dbe8f5;
+  border-left: 1px solid #e0eaf5;
   overflow-y: auto;
 }
 
 .profile-card {
-  background: #ffffff;
+  background: white;
+  padding: 25px;
   border-radius: 25px;
-  padding: 30px 20px;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .profile-img {
@@ -264,65 +205,28 @@ body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
-  margin-bottom: 12px;
-  border: 3px solid #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
+  margin-bottom: 10px;
 }
 
-.profile-img:hover {
-  transform: scale(1.05);
-}
-
-.profile-card h3 {
-  color: #003366;
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-.profile-card .email {
-  color: #777;
-  font-size: 12px;
-  margin-bottom: 20px;
-}
-
-.logout-btn {
-  display: inline-block;
-  background: #ff4b5c;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.logout-btn:hover {
-  background: #e63b4d;
-}
-
-/* === REMINDER CARD === */
 .reminder-card {
-  background: #e9f4ff;
-  border-radius: 15px;
-  padding: 20px;
   margin-top: 25px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background: #e9f4ff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .reminder-card h4 {
-  text-transform: uppercase;
-  color: #999;
   font-size: 11px;
+  text-transform: uppercase;
+  color: #777;
 }
 
 .reminder-card .title {
   font-size: 14px;
+  font-weight: 600;
   color: #0a2a57;
   margin: 8px 0;
-  font-weight: 600;
 }
 
 .reminder-card .desc {
@@ -330,7 +234,7 @@ body {
   color: #333;
 }
 
-/* === RESPONSIVE DESIGN === */
+/* === RESPONSIVE === */
 @media (max-width: 992px) {
   .dashboard-container {
     grid-template-columns: 70px 1fr;
@@ -340,12 +244,217 @@ body {
     display: none;
   }
 
-  .menu-cards {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
   .main-dashboard {
     grid-template-columns: 1fr;
   }
 }
+.btn-edit-photo {
+  margin-top: 12px;
+  background: #0095ff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-edit-photo:hover {
+  background: #0077cc;
+}
+
+/* POPUP */
+.popup {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  width: 350px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.popup-content h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #003366;
+}
+
+.popup-content .input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #dce6f9;
+  margin-bottom: 15px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-save {
+  background: #0095ff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #ddd;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* ---------- CARD CATATAN ---------- */
+.reminder-card {
+    background:#e3f2fd;
+    border-radius:15px;
+    padding:20px;
+    position:relative;
+}
+
+/* ---------- ITEM CATATAN ---------- */
+.note-item {
+    background:#f0f4ff;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:10px;
+    position:relative;
+}
+.note-item button {
+    position:absolute;
+    top:5px;
+    right:8px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    color:#d32f2f;
+    font-size:16px;
+}
+
+/* ---------- TOMBOL TAMBAH ---------- */
+.note-add-btn {
+    position:absolute;
+    bottom:-25px;
+    right:15px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:#1976d2;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ---------- POPUP TAMBAH ---------- */
+.note-popup {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.4);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.note-popup-box {
+    background:#fff;
+    padding:25px 20px;
+    border-radius:15px;
+    width:320px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    animation:fadeIn 0.3s ease;
+}
+
+.popup-title {
+    margin-bottom:15px;
+    color:#1976d2;
+    text-align:center;
+}
+
+.popup-textarea {
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    margin-bottom:15px;
+    resize:none;
+    font-family:'Poppins', sans-serif;
+}
+
+.popup-buttons {
+    text-align:right;
+}
+
+.popup-btn {
+    padding:8px 15px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+}
+
+.popup-btn.save {
+    background:#1976d2; 
+    color:white;
+    margin-right:10px;
+}
+
+.popup-btn.cancel {
+    background:#ccc;
+    color:#333;
+}
+
+/* ---------- POPUP KONFIRMASI ---------- */
+.confirm-overlay {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.4);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+.confirm-box {
+    background:#fff;
+    padding:25px 20px;
+    border-radius:15px;
+    width:300px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+.confirm-box button {
+    padding:8px 15px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    margin:5px;
+}
+
+.confirm-box .yes { background:#d32f2f; color:#fff; }
+.confirm-box .no { background:#ccc; color:#333; }
+
+/* ---------- ANIMATION ---------- */
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(-10px);}
+  to { opacity:1; transform:translateY(0);}
+}
+

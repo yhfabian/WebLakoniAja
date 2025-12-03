@@ -1,94 +1,196 @@
-body {
-  background-color: #f8fafc;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
+/* Judul Dashboard */
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #004aad;
+  margin-bottom: 10px;
+  margin-top: -1000px; /* ✨ naikkan posisi tulisan */
 }
 
-/* Navbar */
-.navbar {
-  background-color: #004aad;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  padding-top: -10px;
+  border-bottom: 1px solid #4a81ca;
 }
-.navbar-brand, 
-.nav-link, 
-.navbar-text {
-  color: white !important;
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.tittle h2 {
+  font-size: 24px;
+  color: #004aad;
+  margin: 0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8fafc;
 }
 
 /* Sidebar */
 .sidebar {
-  width: 220px;
+  width: 250px;
+  height: 100vh;
+  background-color: #478cd2;
+  color: #fff;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
-  background-color: #002b5b;
-  padding-top: 70px;
-  color: white;
-  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+  padding: 25px;
 }
 
-.sidebar h5 {
-  font-weight: 600;
-  color: #cde4ff;
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .sidebar a {
-  display: block;
-  color: white;
-  padding: 12px 20px;
   text-decoration: none;
-  border-left: 4px solid transparent;
-  font-size: 15px;
-  transition: all 0.3s;
+  color: #cbd5e1;
+  font-size: 16px;
+  display: block;
+  padding: 12px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: 0.3s;
 }
 
-.sidebar a:hover, 
-.sidebar a.active {
-  background-color: #004aad;
-  border-left: 4px solid #00c4ff;
+.sidebar .list_sidebar a:hover,
+.sidebar  .list_sidebar .active {
+  background-color: #3b82f6;
+  color: #fff;
 }
+
+.sidebar .keluar a:hover {
+  background-color: #c83434;
+}
+
+.logout {
+  margin-top: 580px;
+  bottom: 30px;
+  text-align: center;
+  width: 80%;
+  width: calc(100% - 20px);
+
+}
+
 
 /* Content */
 .content {
-  margin-left: 240px;
-  padding: 90px 20px 40px 20px;
+  margin-left: 280px;
+  padding: 40px;
 }
 
-/* Card Statistik */
-.card-stat {
-  border-left: 5px solid #004aad;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  border-radius: 12px;
-  transition: transform 0.3s ease;
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #6b7280;
+}
+
+/* Center Card Container */
+.card-container {
+  width: 80%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Card Style */
+.card {
   background: white;
+  padding: 25px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* diperjelas border + shadow */
+  border: 1.5px solid #e5e8ec;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
+
+  transition: 0.2s ease;
 }
 
-.card-stat:hover {
-  transform: translateY(-4px);
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #9bcaff;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
 }
+
+/* Icon Style */
+.card-icon {
+  background: #eaf5ff;
+  padding: 15px;
+  border-radius: 16px;
+  font-size: 32px;
+}
+
+/* Text Styling */
+.card h3 {
+  margin: 0;
+  font-size: 17px;
+  color: #4c4c4c;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+}
+
+.green { color: #1ca64a; }
+.red { color: #c83434; }
 
 /* Footer */
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 260px); /* supaya tidak menutupi sidebar */
+  margin-left: 300px;
+  color: rgb(24, 155, 164);
   text-align: center;
-  padding: 25px;
-  margin-top: 40px;
-  color: #666;
+  padding: 12px 0;
   font-size: 14px;
-  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
 }
 
-/* Responsif */
+/* Responsive */
 @media (max-width: 992px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding-top: 20px;
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .content {
-    margin-left: 0;
-    padding-top: 120px;
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr;
   }
 }

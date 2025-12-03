@@ -1,0 +1,107 @@
+/* ========= GLOBAL ========= */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: #e9f4ff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* ========= CARD FORM ========= */
+.form-container {
+    width: 480px;
+    margin-top: 60px;
+    background: #ffffff;
+    padding: 35px 35px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid #d8e7ff;
+    animation: fadeIn .4s ease;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #004aad;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+/* ========= LABEL ========= */
+label {
+    font-weight: 600;
+    color: #003a82;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* ========= INPUT ========= */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1.5px solid #bcd3ff;
+    margin-bottom: 18px;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+
+input:focus {
+    border-color: #004aad;
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, .15);
+    outline: none;
+}
+
+/* ========= BUTTON GROUP ========= */
+.btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* ========= BUTTON PRIMARY ========= */
+.btn-save {
+    flex: 1;
+    padding: 12px;
+    background: #0062cc;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .25s ease, transform .15s ease;
+}
+
+.btn-save:hover {
+    background: #004aad;
+    transform: translateY(-2px);
+}
+
+/* ========= BUTTON CANCEL ========= */
+.btn-cancel {
+    flex: 1;
+    padding: 12px;
+    background: #b0b0b0;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background .25s ease, transform .15s ease;
+}
+
+.btn-cancel:hover {
+    background: #8a8a8a;
+    transform: translateY(-2px);
+}
+
+/* ========= ANIMATION ========= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

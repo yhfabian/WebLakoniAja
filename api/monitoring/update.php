@@ -1,6 +1,11 @@
 <?php
 header("Content-Type: application/json");
-include "../koneksi.php";
+require "../../db.php";
+
+if (!isset($_POST['id_monitoring'])) {
+    echo json_encode(["status" => false, "message" => "id_monitoring wajib"]);
+    exit;
+}
 
 $id = $_POST['id_monitoring'];
 $tanggal = $_POST['tanggal'];
@@ -8,16 +13,24 @@ $catatan = $_POST['catatan'];
 $diagnosis = $_POST['diagnosis'];
 $rekomendasi = $_POST['rekomendasi'];
 
-$stmt = $conn->prepare("
-    UPDATE monitoring 
-    SET tanggal=?, catatan=?, diagnosis=?, rekomendasi=?
-    WHERE id_monitoring=?
-");
-$stmt->bind_param("ssssi", $tanggal, $catatan, $diagnosis, $rekomendasi, $id);
+$query = "
+UPDATE monitoring SET 
+    tanggal = '$tanggal',
+    catatan = '$catatan',
+    diagnosis = '$diagnosis',
+    rekomendasi = '$rekomendasi'
+WHERE id_monitoring = '$id'
+";
 
-if ($stmt->execute()) {
-    echo json_encode(["success" => true, "message" => "Data berhasil diperbarui"]);
+$update = mysqli_query($conn, $query);
+
+if ($update) {
+    
+    // 🔥 Redirect kembali ke halaman detail rekam medis
+    header("Location: ../../rm_detail.php?id=" . $id);
+    exit;
+
 } else {
-    echo json_encode(["success" => false, "message" => "Gagal memperbarui data"]);
+    echo json_encode(["status" => false, "message" => "Gagal update data"]);
 }
 ?>

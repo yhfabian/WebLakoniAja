@@ -1,15 +1,19 @@
 <?php
 header("Content-Type: application/json");
-include "../koneksi.php";
+require "../../db.php";
 
-$id = $_GET['id'] ?? null;
-
-if (!$id) {
-    echo json_encode(["success" => false, "message" => "ID wajib"]);
+if (!isset($_GET['id'])) {
+    echo json_encode(["status"=>false, "message"=>"id wajib"]);
     exit;
 }
 
-$conn->query("DELETE FROM monitoring WHERE id_monitoring = '$id'");
+$id = $_GET['id'];
 
-echo json_encode(["success" => true, "message" => "Rekam medis berhasil dihapus"]);
+$ok = mysqli_query($conn, "DELETE FROM monitoring WHERE id_monitoring = '$id'");
+
+if ($ok) {
+    header("Location: ../../rekam_medis.php"); // ← Redirect kembali ke rm
+} else {
+    echo json_encode(["status"=>false, "message"=>"Gagal menghapus"]);
+}
 ?>

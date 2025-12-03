@@ -1,0 +1,124 @@
+@import url('dashboard_admin.css');
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -50px; /* FIXED */
+  margin-bottom: 30px;
+}
+
+/* Judul Kiri */
+.brand-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+/* Bagian kanan profil */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #3B82F6;
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Garis biru */
+.header-line {
+  border: 0;
+  border-top: 1px solid #4a81ca;
+  margin-bottom: 30px;
+  opacity: 1;
+}
+
+/* FORM BOX */
+.form-edit {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 55%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.form-edit label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-edit input,
+.form-edit select {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  outline: none;
+}
+
+.form-edit input:focus,
+.form-edit select:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 4px rgba(59,130,246,0.3);
+}
+
+/* BUTTONS */
+.btn-edit-save {
+  background-color: #3B82F6;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-edit-save:hover {
+  background-color: #2164d8;
+}
+
+.btn-cancel {
+  background-color: #888;
+  padding: 10px 18px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.btn-cancel:hover {
+  background-color: #555;
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 260px;
+  width: calc(100% - 260px);
+  text-align: center;
+  padding: 12px 0;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+  color: #189ba4;
+}

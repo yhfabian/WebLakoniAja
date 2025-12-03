@@ -1,57 +1,147 @@
-body {
-  background-color: #f8fafc;
-  font-family: 'Poppins', sans-serif;
+@import url('dashboard_admin.css');
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -50 px;
+  margin-bottom: 30px;
+  padding-bottom: -50px;
+  padding-top: -40px;
 }
 
-.navbar {
-  background-color: #004aad;
+/* Judul Kiri "Lakoni Aja" */
+.brand-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000; /* Hitam pekat sesuai gambar */
+  margin: 0;
+}
+
+/* Bagian Kanan (Nama & Avatar) */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  margin-top: -7px;/* Jarak antara nama dan bulat avatar */
+}
+
+/* Teks "Admin Petugas" */
+.profile-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}
+
+/* Lingkaran Avatar "A" */
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #3B82F6; /* Warna Biru terang sesuai gambar */
   color: white;
+  font-weight: 600;
+  font-size: 24px;
+  border-radius: 50%; /* Membuat jadi bulat */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navbar-brand, .nav-link, .navbar-text {
-  color: white !important;
+/* Garis Pemisah Biru Tipis */
+.header-line {
+  border: 0;
+  border-top: 1px solid #4a81ca; /* Menggunakan warna biru border kamu yang lama */
+  margin-bottom: 30px; /* Jarak dari garis ke judul "Kelola User" */
+  opacity: 1;
+  margin-top: -5px;
 }
 
-.sidebar {
-  width: 220px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: #002b5b;
-  padding-top: 60px;
-  color: white;
-}
-
-.sidebar a {
-  display: block;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-left: 4px solid transparent;
-}
-
-.sidebar a:hover, .sidebar a.active {
-  background-color: #004aad;
-  border-left: 4px solid #00c4ff;
-}
-
-.content {
-  margin-left: 240px;
-  padding: 20px;
-}
-
-.table {
+.form-box {
   background: white;
+  padding: 20px;
   border-radius: 10px;
-  overflow: hidden;
+  margin-top: 30px;
+  width: 50%;
+  /* Menambahkan box-shadow agar sedikit lebih elegan */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
 }
 
-.table th {
-  background-color: #004aad;
+/* --- Style Baru untuk Tabel --- */
+
+.table-container {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%; /* Lebar tabel diset 90% agar muat banyak kolom */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.table-jadwal {
+  width: 100%;
+  border-collapse: collapse; /* Menghilangkan jarak antar border sel */
+  font-family: sans-serif;
+}
+
+.table-jadwal th, 
+.table-jadwal td {
+  border: 1px solid #ddd; /* Garis tipis abu-abu */
+  padding: 12px 15px;
+  text-align: center; /* Teks rata tengah */
+}
+
+/* Style Header (Warna Biru seperti di gambar) */
+.table-jadwal th {
+  background-color: #d6eaf8; /* Warna biru muda */
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Efek hover pada baris tabel */
+.table-jadwal tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Tombol Aksi */
+.btn-edit {
+  background-color: #ffc107;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
   color: white;
 }
 
-.table-hover tbody tr:hover {
-  background-color: #f1f7ff;
+/* Optional: Warna Status */
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+.status-booked {
+  color: red;
+  font-weight: bold;
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 260px); /* supaya tidak menutupi sidebar */
+  margin-left: 300px;
+  color: rgb(24, 155, 164);
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
 }

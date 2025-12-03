@@ -2,127 +2,141 @@
 session_start();
 include 'db.php';
 
-// Pastikan user atau konselor sudah login
-if (!isset($_SESSION['id_konselor']) && !isset($_SESSION['id_user'])) {
+// Cek login konselor
+if (!isset($_SESSION['id_konselor'])) {
     header("Location: login.php");
     exit();
 }
 
+$id_konselor = $_SESSION['id_konselor'];
 
-// Proses simpan testimoni
-if (isset($_POST['simpan'])) {
-    $pesan = trim($_POST['pesan']);
-    $rating = $_POST['rating'];
+// Ambil data konselor dari database
+$stmt = mysqli_prepare($conn, "SELECT nama, foto FROM konselor WHERE id_konselor = ?");
+mysqli_stmt_bind_param($stmt, "i", $id_konselor);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$konselor = mysqli_fetch_assoc($result);
 
-    if (empty($pesan)) {
-        $errors[] = "Pesan testimoni tidak boleh kosong.";
-    } else {
-        $stmt = mysqli_prepare($conn, 
-            "INSERT INTO testimoni (id_pengirim, tipe_pengirim, pesan, rating, tanggal)
-             VALUES (?, ?, ?, ?, NOW())"
-        );
-        mysqli_stmt_bind_param($stmt, "issi", $id_pengirim, $tipe_pengirim, $pesan, $rating);
-        $simpan = mysqli_stmt_execute($stmt);
+$nama_konselor = $konselor['nama'] ?? 'Konselor';
+$foto = !empty($konselor['foto']) 
+    ? 'uploads/' . $konselor['foto'] 
+    : 'assets/img/user.png';
 
-        if ($simpan) {
-            $success = "Testimoni berhasil dikirim!";
-        } else {
-            $errors[] = "Gagal menyimpan testimoni.";
-        }
-        mysqli_stmt_close($stmt);
-    }
-}
+
+// ============================
+//  AMBIL DATA TESTIMONI VIA API
+// ============================
+$api_testimoni = "http://localhost/lakoni_aja/api/get_testimoni.php";
+$response = @file_get_contents($api_testimoni);
+$data_api = json_decode($response, true);
+
+$testimoni_list = $data_api['data'] ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimoni - Lakoni Aja</title>
-  <link rel="stylesheet" href="assets/css/form_testimoni.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimoni - Lakoni Aja</title>
+
+    <link rel="stylesheet" href="assets/css/testimoni.css?v=<?php echo time(); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="dashboard">
-    <header class="header">
-      <div class="logo">
-        <h3>LAKONI AJA</h3>
-      </div>
-      <nav>
-        <ul>
-                <li><a href="testimoni.php" class="active">TESTIMONI</a></li>
-                <li><a href="form_jadwal.php">SCHEDULE</a></li>
-                <li><a href="chat.php">CHAT</a></li>
-                <li><a href="dashboard.php">HOME</a></li>
-        </ul>
-      </nav>
-      <div class="user">
-        <h4>RISA RAHMAWATI</h4>
-        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="User">
-      </div>
-    </header>
 
-    <main class="content">
-      <h2 class="section-title">TESTIMONI</h2>
+<div class="dashboard-container">
 
-      <div class="testimoni-container">
-        <!-- Testimoni 1 -->
-        <div class="testimoni-card">
-          <img src="https://randomuser.me/api/portraits/men/10.jpg" class="avatar" alt="Zafar">
-          <div class="text-content">
-            <h4>Zafar Muhammad</h4>
-            <p>Sesi konsultasi pertama bersama kak Risa membuat saya jauh lebih tenang dan termotivasi.</p>
-            <div class="actions">
-              <span>💬 12 Comments</span>
-              <span>❤️ 58 Likes</span>
-            </div>
-          </div>
+    <!-- === SIDEBAR === -->
+    <div class="sidebar">
+
+        <div>
+            <a href="dashboard.php" class="item icon top">
+                <i class="ri-home-5-line"></i>
+            </a>
         </div>
 
-        <!-- Testimoni 2 -->
-        <div class="testimoni-card">
-          <img src="https://randomuser.me/api/portraits/women/21.jpg" class="avatar" alt="Wanda">
-          <div class="text-content">
-            <h4>Wanda Calista</h4>
-            <p>Tak butuh uang, butuhnya kasih sayang. Terima kasih konselor paling sabar & tulus 💙</p>
-            <div class="actions">
-              <span>💬 7 Comments</span>
-              <span>❤️ 45 Likes</span>
-            </div>
-          </div>
+        <div class="menu">
+            <a href="jadwalkonselor.php" class="item">
+                <i class="ri-calendar-event-line"></i>
+            </a>
+            <a href="chat.php" class="item">
+                <i class="ri-message-3-line"></i>
+            </a>
+            <a href="testimoni.php" class="item active">
+                <i class="ri-chat-smile-3-line"></i>
+            </a>
+            <a href="rekam_medis.php" class="item">
+                <i class="ri-file-list-3-line"></i>
+            </a>
+            <a href="artikel.php" class="item">
+                <i class="ri-article-line"></i>
+            </a>
         </div>
 
-        <!-- Testimoni 3 -->
-        <div class="testimoni-card">
-          <img src="https://randomuser.me/api/portraits/men/19.jpg" class="avatar" alt="Rizky">
-          <div class="text-content">
-            <h4>Rizky Andriansyah</h4>
-            <p>Bimbingan yang menenangkan dan solutif. Sekarang saya bisa berpikir lebih positif tiap harinya.</p>
-            <div class="actions">
-              <span>💬 9 Comments</span>
-              <span>❤️ 62 Likes</span>
-            </div>
-          </div>
+        <div>
+            <a href="logout.php" class="icon bottom">
+                <i class="ri-logout-circle-r-line"></i>
+            </a>
         </div>
 
-        <!-- Testimoni 4 -->
-        <div class="testimoni-card">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar" alt="Nadia">
-          <div class="text-content">
-            <h4>Nadia Putri</h4>
-            <p>Kak Risa benar-benar pendengar yang baik. Saya merasa dihargai dan didengarkan sepenuhnya 🕊️</p>
-            <div class="actions">
-              <span>💬 10 Comments</span>
-              <span>❤️ 70 Likes</span>
-            </div>
-          </div>
+    </div>
+
+
+    <!-- === CONTENT === -->
+    <div class="content">
+        <div class="title">Testimoni <span>Mahasiswa</span></div>
+
+        <div class="testi-container">
+
+            <?php if (empty($testimoni_list)): ?>
+
+                <p style="text-align:center; color:#777; margin-top:20px;">
+                    Belum ada testimoni dari mahasiswa.
+                </p>
+
+            <?php else: ?>
+
+                <?php foreach ($testimoni_list as $t): ?>
+                    
+                    <div class="testi-card">
+
+                        <!-- FOTO DEFAULT -->
+                        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" 
+                             alt="User" class="avatar">
+
+                        <div class="text">
+                            <h4><?= htmlspecialchars($t['nama']) ?></h4>
+
+                            <p><?= nl2br(htmlspecialchars($t['komentar'])) ?></p>
+
+                            <div class="row">
+                                <span>🗓 <?= date("d M Y", strtotime($t['tanggal'])) ?></span>
+                                <span>💬 Testimoni</span>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
+
+            <?php endif; ?>
+
         </div>
-      </div>
-    </main>
-  </div>
+    </div>
+
+
+    <!-- === RIGHT PANEL === -->
+    <div class="right-panel">
+        <div class="profile-card">
+            <img src="<?= $foto ?>" class="profile-img" alt="profile">
+            <h3><?= htmlspecialchars($nama_konselor) ?></h3>
+            <p class="email">Konselor Polije</p>
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
-

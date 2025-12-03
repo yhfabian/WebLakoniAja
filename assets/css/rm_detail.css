@@ -1,0 +1,170 @@
+/* =====================================
+   GLOBAL
+===================================== */
+body {
+    font-family: "Poppins", sans-serif;
+    background: #e9f4ff;
+    margin: 0;
+    padding: 25px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.btn-back {
+    text-decoration: none;
+    font-size: 14px;
+    background: #003366;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* =====================================
+   CARD DETAIL
+===================================== */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #1b4fa3;
+    font-weight: 600;
+}
+
+/* =====================================
+   BOX CONTENT
+===================================== */
+.box {
+    background: #f5f9ff;
+    padding: 15px 18px;
+    border-left: 5px solid #1b4fa3;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.box h3 {
+    margin: 0 0 8px 0;
+    color: #0095ff;
+    font-size: 17px;
+}
+
+.box p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+/* =====================================
+   ACTION BUTTON AREA
+===================================== */
+.action-area {
+    text-align: right;
+    margin-top: 25px;
+}
+
+.btn-pdf {
+    background: #ff7b00;
+    padding: 10px 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-pdf:hover {
+    background: #e86c00;
+}
+/* BUTTON EDIT & DELETE */
+.btn-edit {
+    background: #00b36b;
+    padding: 10px 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.btn-edit:hover { background: #00945a; }
+
+.btn-delete {
+    background: #ff4b4b;
+    padding: 10px 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.btn-delete:hover { background: #d93636; }
+
+/* POPUP EDIT */
+.popup {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    z-index: 999;
+}
+
+.popup-content {
+    background: #fff;
+    width: 380px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.popup-content label {
+    font-weight: 600;
+    display: block;
+    margin-top: 8px;
+    color: #0b3d91;
+}
+
+.popup-content input,
+.popup-content textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #dfeefc;
+    margin-top: 6px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.btn-save {
+    background: #0b84ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #ddd;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
