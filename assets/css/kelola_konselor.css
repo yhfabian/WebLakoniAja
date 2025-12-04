@@ -139,6 +139,11 @@
     cursor: pointer;
     font-size: 12px;
     margin-right: 5px;
+    text-align: center;
+}
+
+.action-buttons {
+  text-align: center;
 }
 
 .btn-edit {
@@ -215,9 +220,8 @@
 .button-group {
     margin-top: 25px;
     justify-content: flex-end;
-    display: flex;
+    display: inline-flex;
     gap: 20px;
-    margin-right: 20px;
 }
 
 /* ========= BUTTON: SIMPAN ========= */
@@ -232,7 +236,9 @@
     font-size: 15px;
     font-weight: 600;
     transition: 0.25s ease;
-    margin-left: 100px;
+    display: inline-flex;
+    margin-top: 20px;
+    margin-left: 580px;
 }
 
 .btn-submit:hover {
@@ -252,6 +258,7 @@
     font-size: 15px;
     font-weight: 600;
     transition: 0.25s ease;
+    display: inline-flex;
 }
 
 .btn-reset:hover {
@@ -261,7 +268,7 @@
 
 /* ========= BUTTON: KEMBALI ========= */
 .btn-back {
-    display: inline-block;
+
     margin-top: 25px;
     background: #777;
     color: white;
@@ -277,12 +284,49 @@
     transform: translateY(-2px);
 }
 
-.btn-save,
+/* Wrapper tombol */
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-right: 20px;
+    margin-left: 0px;
+}
+
+/* Tombol SIMPAN */
+.btn-save {
+    background: #0062cc;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.btn-save:hover {
+    background: #004aad;
+    transform: translateY(-2px);
+}
+
+/* Tombol BATAL */
 .btn-cancel {
-    display: inline-block;
-    margin-top: 5px; /* bisa 40–60px sesuai kebutuhan */
-    align-items: flex-start;
-    margin-left: 500px;
+    background: #d9534f;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.btn-cancel:hover {
+    background: #b33f3b;
+    transform: translateY(-2px);
 }
 
 
@@ -317,4 +361,9 @@
   font-size: 14px;
   box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
 }
-
+.content h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 15px 0 10px 5px;
+  color: #004aad;
+}

@@ -13,7 +13,7 @@ body {
 /* ========= CARD FORM ========= */
 .form-container {
     width: 480px;
-    margin-top: 60px;
+    margin-top: 130px;
     background: #ffffff;
     padding: 35px 35px 28px;
     border-radius: 18px;
@@ -37,17 +37,19 @@ label {
     display: block;
     margin-bottom: 6px;
     font-size: 14px;
+    width: 300px;
 }
 
 /* ========= INPUT ========= */
 input {
-    width: 100%;
+    width: 95%;
     padding: 12px;
     border-radius: 10px;
     border: 1.5px solid #bcd3ff;
     margin-bottom: 18px;
     font-size: 14px;
     transition: 0.25s ease;
+    margin-right: 25px;
 }
 
 input:focus {

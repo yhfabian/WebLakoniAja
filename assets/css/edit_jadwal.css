@@ -65,7 +65,7 @@
   width: 60%;
   margin: auto;
   margin-top: 10px;
-
+  
   box-shadow: 0 3px 12px rgba(0,0,0,0.15);
 }
 
@@ -92,6 +92,7 @@
   border-radius: 6px;
   margin-bottom: 18px;
   outline: none;
+  margin-left: -10px;
 }
 
 .form-box input:focus,
@@ -168,5 +169,11 @@
   .form-box {
     width: 95%;
   }
+}
+.content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 15px 0 10px 5px;
+  color: #004aad;
 }
 

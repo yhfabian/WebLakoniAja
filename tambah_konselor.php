@@ -72,7 +72,7 @@ if (isset($_POST['simpan'])) {
       <a href="kelola_konselor.php" class="active">🧑‍⚕️ Kelola Konselor</a>
       <a href="kelola_jadwal.php">📅 Kelola Jadwal</a>
   </div>
-  <div class="keluar"><a href="logout_admin.php" class="logout">Logout</a></div>
+  <div class="keluar"><a href="logout.php" class="logout">Logout</a></div>
 </div>
 
 <div class="content">
@@ -107,11 +107,13 @@ if (isset($_POST['simpan'])) {
             <label>Bidang Keahlian</label>
             <input type="text" name="bidang_keahlian" required>
 
-            <label>Kontak</label>
+            <label>Email</label>
             <input type="text" name="kontak" required>
 
-            <button type="submit" name="simpan" class="btn-save">Simpan</button>
-            <a href="kelola_konselor.php" class="btn-cancel">Batal</a>
+           <div class="button-group">
+                <button type="submit" name="simpan" class="btn-save">Simpan</button>
+                <a href="kelola_konselor.php" class="btn-cancel">Batal</a>
+            </div>
 
         </form>
     </div>

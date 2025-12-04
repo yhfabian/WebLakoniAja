@@ -98,9 +98,6 @@ $listKonselor = mysqli_query($conn, "SELECT id_konselor, nama FROM konselor");
 
 </div>
 
-<footer class="footer">
-    © 2025 Lakoni Aja - Sistem Konseling Polije
-</footer>
 
 </body>
 </html>

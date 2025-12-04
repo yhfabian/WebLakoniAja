@@ -40,7 +40,7 @@ $foto = !empty($konselor['foto'])
   <div class="dashboard-container">
 
     <!-- === SIDEBAR === -->
-<div class="sidebar">
+  <div class="sidebar">
 
     <div>
         <a href="dashboard.php" class="item active icon top">
@@ -72,7 +72,7 @@ $foto = !empty($konselor['foto'])
         </a>
     </div>
 
-</div>
+  </div>
 
 
     <!-- === MAIN CONTENT === -->

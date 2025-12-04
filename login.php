@@ -149,14 +149,12 @@ if (isset($_POST['login'])) {
         <label for="password">Password</label>
         <div class="password-wrapper">
             <input type="password" id="password" name="password" placeholder="Masukkan password" required />
-            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            <span class="toggle-password" onclick="togglePassword()"></span>
         </div>
 
-        <div class="forgot-password"><a href="#">Lupa password?</a></div>
-        <p><a href="forgot_password">Kembali ke Login</a></p>
-        
+    
         <button type="submit" name="login">LOGIN</button>
-        <p>Belum punya akun? <a href="register.php">Daftar</a></p>
+        <p><a href="index.php">Kembali ke Halaman Utama</a></p>
     </form>
   </div>
 </div>

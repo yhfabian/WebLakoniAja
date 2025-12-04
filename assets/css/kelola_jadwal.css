@@ -1,5 +1,6 @@
 @import url('dashboard_admin.css');
 
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -113,6 +114,7 @@
   margin-right: 5px;
 }
 
+
 .btn-delete {
   background-color: #dc3545;
   border: none;
@@ -132,6 +134,8 @@
   font-weight: bold;
 }
 
+
+
 /* Footer */
 .footer {
   position: fixed;
@@ -144,4 +148,10 @@
   padding: 12px 0;
   font-size: 14px;
   box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
+}
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #004aad;
+  margin-bottom: 15px;
 }

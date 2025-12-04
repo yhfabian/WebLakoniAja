@@ -32,6 +32,7 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <title>Kelola Jadwal</title>
     <link rel="stylesheet" href="assets/css/kelola_jadwal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -111,7 +112,7 @@ $result = mysqli_query($conn, $query);
 
                         <a href="kelola_jadwal.php?hapus=<?= $row['id_jadwal']; ?>"
                            onclick="return confirm('Yakin ingin menghapus jadwal ini?')"
-                           class="btn-hapus">Hapus</a>
+                           class="btn-delete">Hapus</a>
                     </td>
                 </tr>
 

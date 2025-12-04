@@ -164,8 +164,8 @@ if (isset($_GET['cari'])) {
                             <td><?= $row['username'] ?></td>
 
                             <td>
-                                <a href="edit_user.php?id=<?= $row['id_user'] ?>" class="btn-action">Edit</a> |
-                                <a href="?hapus=<?= $row['id_user'] ?>" class="btn-action" onclick="return confirm('Yakin hapus user ini?')">Hapus</a>
+                                <a href="edit_user.php?id=<?= $row['id_user'] ?>" class="btn-edit">Edit</a> |
+                                <a href="?hapus=<?= $row['id_user'] ?>" class="btn-hapus" onclick="return confirm('Yakin hapus user ini?')">Hapus</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>

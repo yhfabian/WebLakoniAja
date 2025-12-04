@@ -102,8 +102,10 @@ if (isset($_POST['reset_password'])) {
       <a href="kelola_konselor.php" class="active">🧑‍⚕️ Kelola Konselor</a>
       <a href="kelola_jadwal.php">📅 Kelola Jadwal</a>
   </div>
-  <div class="keluar"><a href="logout_admin.php" class="logout">Logout</a></div>
+  <div class="keluar"><a href="logout.php" class="logout">Logout</a></div>
 </div>
+
+<a href="kelola_konselor.php" class="btn-back">← Kembali</a>
 
 <div class="content">
 
@@ -140,23 +142,17 @@ if (isset($_POST['reset_password'])) {
             <label>Kontak</label>
             <input type="text" name="kontak" value="<?= htmlspecialchars($data['kontak']) ?>" required>
 
-            <button type="submit" name="update" class="btn-submit">Simpan Perubahan</button>
-        </form>
-
-        <hr style="margin:20px 0;">
-
-        <!-- FORM RESET PASSWORD -->
-        <h3>Reset Password</h3>
-        <form method="POST">
             <label>Password Baru</label>
             <input type="password" name="new_password" required>
 
-            <button type="submit" name="reset_password" class="btn-reset">Reset Password</button>
+             <button type="submit" name="update" class="btn-submit">Simpan Perubahan</button>
         </form>
 
     </div>
 
-    <a href="kelola_konselor.php" class="btn-back">← Kembali</a>
+    
+
+
 
 </div>
 

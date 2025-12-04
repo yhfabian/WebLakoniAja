@@ -1,5 +1,9 @@
 @import url('dashboard_admin.css');
 
+.page-tittle {
+  color: #3B82F6;
+}
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -209,6 +213,25 @@ td {
 }
 th {
   background: #e2e8f0;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  margin-right: 5px;
+}
+
+.btn-hapus {
+  background-color: #dc3545;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
 }
 
 /* Footer */

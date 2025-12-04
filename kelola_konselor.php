@@ -125,6 +125,7 @@ $konselor = mysqli_query($conn, "SELECT id_konselor, nama, username, bidang_keah
     <meta charset="UTF-8">
     <title>Kelola Konselor</title>
     <link rel="stylesheet" href="assets/css/kelola_konselor.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -156,6 +157,7 @@ $konselor = mysqli_query($conn, "SELECT id_konselor, nama, username, bidang_keah
         <h2 class="page-title">Kelola Konselor</h2>
         <a href="tambah_konselor.php" class="btn-add">+ Tambah Konselor</a>
     </div>
+    
 
     <!-- ALERT SUCCESS / ERROR -->
     <?php if ($success): ?>

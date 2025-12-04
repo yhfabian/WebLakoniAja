@@ -83,7 +83,7 @@ if (isset($_POST['login'])) {
         <label for="password">Password</label>
         <div class="password-wrapper">
             <input type="password" id="password" name="password" placeholder="Masukkan password" required />
-            <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            <span class="toggle-password" onclick="togglePassword()"></span>
         </div>
 
         <button type="submit" name="login">LOGIN</button>
