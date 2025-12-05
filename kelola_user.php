@@ -13,11 +13,11 @@ if (isset($_POST['tambah'])) {
     $nama     = $_POST['nama'];
     $nim      = $_POST['nim'];
     $kelas    = $_POST['email'];
-    $kontak   = $_POST['kontak'];
+    $kontak   = $_POST['no_hp'];
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $stmt = mysqli_prepare($conn, "INSERT INTO user (nama, nim, email, kontak, username, password) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = mysqli_prepare($conn, "INSERT INTO user (nama, nim, email, no_hp, username, password) VALUES (?, ?, ?, ?, ?, ?)");
     mysqli_stmt_bind_param($stmt, "ssssss", $nama, $nim, $email, $kontak, $username, $password);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
@@ -32,16 +32,16 @@ if (isset($_POST['edit'])) {
     $nama     = $_POST['nama'];
     $nim      = $_POST['nim'];
     $kelas    = $_POST['kelas'];
-    $kontak   = $_POST['kontak'];
+    $kontak   = $_POST['no_hp'];
     $username = $_POST['username'];
 
     if (!empty($_POST['password'])) {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $query = "UPDATE user SET nama=?, nim=?, email=?, kontak=?, username=?, password=? WHERE id_user=?";
+        $query = "UPDATE user SET nama=?, nim=?, email=?, no_hp=?, username=?, password=? WHERE id_user=?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "ssssssi", $nama, $nim, $email, $kontak, $username, $password, $id_user);
     } else {
-        $query = "UPDATE user SET nama=?, nim=?, email=?, kontak=?, username=? WHERE id_user=?";
+        $query = "UPDATE user SET nama=?, nim=?, email=?, no_hp=?, username=? WHERE id_user=?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "sssssi", $nama, $nim, $email, $kontak, $username, $id_user);
     }
@@ -160,7 +160,7 @@ if (isset($_GET['cari'])) {
                             <td><?= htmlspecialchars($row['nama']) ?></td>
                             <td><?= $row['nim'] ?></td>
                             <td><?= $row['email'] ?></td>
-                            <td><?= $row['kontak'] ?></td>
+                            <td><?= $row['no_hp'] ?></td>
                             <td><?= $row['username'] ?></td>
 
                             <td>

@@ -22,6 +22,7 @@ $artikel = $conn->query("SELECT * FROM artikel ORDER BY id_artikel DESC");
 
 <body>
 
+<div class="layout">
 <!-- SIDEBAR -->
 <div class="sidebar">
 
@@ -99,6 +100,7 @@ endif;
         <?php endwhile; ?>
 
     </div>
+</div>
 </div>
 
 

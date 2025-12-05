@@ -27,7 +27,7 @@ SELECT m.*,
        u.nama AS nama_user,
        u.nim AS nim_user,
        u.email AS email_user,
-       u.kontak AS kontak_user,
+       u.no_hp AS kontak_user,
        k.nama AS nama_konselor
 FROM monitoring m
 JOIN user u ON m.id_user = u.id_user

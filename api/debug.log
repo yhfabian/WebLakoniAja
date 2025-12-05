@@ -1,0 +1,34 @@
+[2025-12-04 17:00:27] API Called
+Method: GET
+POST Data: Array
+(
+)
+
+Raw Input: 
+
+[2025-12-04 17:17:59] API Called
+Method: POST
+POST Data: Array
+(
+    [id_konselor] => 1
+    [tanggal] => 2025-12-08
+    [jam_mulai] => 12:00
+    [jam_selesai] => 02.00
+    [status] => tersedia
+)
+
+Raw Input: 
+
+[2025-12-04 17:18:27] API Called
+Method: POST
+POST Data: Array
+(
+    [id_konselor] => 1
+    [tanggal] => 2025-12-08
+    [jam_mulai] => 12:00
+    [jam_selesai] => 14:00
+    [status] => tersedia
+)
+
+Raw Input: 
+

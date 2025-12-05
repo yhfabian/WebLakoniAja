@@ -95,7 +95,7 @@ $foto = !empty($konselor['foto'])
         </div>
         <div class="card">
         <div class="rm-card" onclick="window.location.href='jadwalkonselor.php'">
-          <img src="assets/img/calendar.png" alt="jadwal">
+          <img src="assets/img/kalender.png" alt="jadwal">
           <p>Jadwal Saya</p>
         </div>
 

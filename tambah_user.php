@@ -14,15 +14,15 @@ if (isset($_POST['tambah'])) {
     $nama     = trim($_POST['nama']);
     $nim      = trim($_POST['nim']);
     $email    = trim($_POST['email']);
-    $kontak   = trim($_POST['kontak']);
+    $no_hp    = trim($_POST['no_hp']);  // ubah di sini
     $username = trim($_POST['username']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     // validasi
-    if ($nama && $nim && $email && $kontak && $username) {
+    if ($nama && $nim && $email && $no_hp && $username) {
 
-        $stmt = mysqli_prepare($conn, "INSERT INTO user (nama, nim, email, kontak, username, password) VALUES (?, ?, ?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, "ssssss", $nama, $nim, $email, $kontak, $username, $password);
+        $stmt = mysqli_prepare($conn, "INSERT INTO user (nama, nim, email, no_hp, username, password) VALUES (?, ?, ?, ?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, "ssssss", $nama, $nim, $email, $no_hp, $username, $password);
 
         if (mysqli_stmt_execute($stmt)) {
             echo "<script>alert('User berhasil ditambahkan!'); window.location='kelola_user.php';</script>";
@@ -58,8 +58,8 @@ if (isset($_POST['tambah'])) {
         <label>Email</label>
         <input type="email" name="email" required>
 
-        <label>Kontak</label>
-        <input type="text" name="kontak" required>
+        <label>No. HP</label>
+        <input type="text" name="no_hp" required>  <!-- ubah di sini -->
 
         <label>Username</label>
         <input type="text" name="username" required>

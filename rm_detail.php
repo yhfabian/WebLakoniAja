@@ -13,7 +13,7 @@ if (!$id_monitoring) {
 }
 
 // --- Ambil Data Monitoring via API ---
-$api = "http://localhost/lakoni_aja/api/monitoring/detail.php?id=" . $id_monitoring;
+$api = "http://localhost/weblakoniaja/api/monitoring/detail.php?id=" . $id_monitoring;
 $response = file_get_contents($api);
 $data = json_decode($response, true);
 
