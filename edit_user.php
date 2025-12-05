@@ -27,16 +27,16 @@ if (isset($_POST['edit'])) {
     $nama     = trim($_POST['nama']);
     $nim      = trim($_POST['nim']);
     $email    = trim($_POST['email']);
-    $kontak   = trim($_POST['kontak']);
+    $kontak   = trim($_POST['no_hp']);
     $username = trim($_POST['username']);
 
     if (!empty($_POST['password'])) {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $query = "UPDATE user SET nama=?, nim=?, email=?, kontak=?, username=?, password=? WHERE id_user=?";
+        $query = "UPDATE user SET nama=?, nim=?, email=?, no_hp=?, username=?, password=? WHERE id_user=?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "ssssssi", $nama, $nim, $email, $kontak, $username, $password, $id_user);
     } else {
-        $query = "UPDATE user SET nama=?, nim=?, email=?, kontak=?, username=? WHERE id_user=?";
+        $query = "UPDATE user SET nama=?, nim=?, email=?, no_hp=?, username=? WHERE id_user=?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "sssssi", $nama, $nim, $email, $kontak, $username, $id_user);
     }
@@ -73,7 +73,7 @@ if (isset($_POST['edit'])) {
         <input type="email" name="email" value="<?= $user['email'] ?>" required>
 
         <label>Kontak</label>
-        <input type="text" name="kontak" value="<?= $user['kontak'] ?>" required>
+        <input type="text" name="kontak" value="<?= $user['no_hp'] ?>" required>
 
         <label>Username</label>
         <input type="text" name="username" value="<?= $user['username'] ?>" required>

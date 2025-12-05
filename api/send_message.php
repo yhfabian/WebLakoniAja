@@ -6,7 +6,7 @@ header("Content-Type: application/json");
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') { http_response_code(200); exit(); }
 
-require_once _DIR_ . '/../db.php';
+require_once __DIR__ . '/../db.php';
 
 $id_booking  = $_POST['id_booking'] ?? '';
 $id_user     = $_POST['id_user'] ?? '';

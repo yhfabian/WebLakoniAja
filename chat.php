@@ -1,5 +1,4 @@
-<!doctype html>
-<!-- File: chat_modern.php  (FULL-REPLACE modern UI) -->
+
 <?php
 session_start();
 include 'db.php';
@@ -211,7 +210,7 @@ $form_disabled = $chat_expired || !$user_can_reply;
 
   <script>
     // Config from PHP
-    const API_URL = 'http://localhost/webLakoniAja/api/';
+    const API_URL = 'http://localhost/lakoni_aja/api/';
     const isUserStartedChat = <?= json_encode($user_can_reply ? true : false) ?>;
     let _isUserStartedChat = isUserStartedChat;
     let isChatExpired = <?= json_encode($chat_expired ? true : false) ?>;
