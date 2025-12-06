@@ -79,7 +79,7 @@ $form_disabled = $chat_expired || !$user_can_reply;
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Modern Chat UI — LakoniAja</title>
-  <link rel="stylesheet" href="assets/css/chat.css">
+  <link rel="stylesheet" href="assets/css/chat_modern.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>

@@ -26,7 +26,7 @@ $foto = !empty($konselor['foto'])
 // ============================
 //  AMBIL DATA TESTIMONI VIA API
 // ============================
-$api_testimoni = "http://localhost/lakoni_aja/api/get_testimoni.php";
+$api_testimoni = "http://localhost/WeblakoniAja/api/get_testimoni.php";
 $response = @file_get_contents($api_testimoni);
 $data_api = json_decode($response, true);
 

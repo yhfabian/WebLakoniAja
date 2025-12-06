@@ -16,6 +16,7 @@ $query = "
 SELECT 
     m.id_monitoring,
     m.tanggal,
+    m.diagnosis,
     u.nama AS nama_user,
     u.nim AS nim_user,
     u.email AS email_user

@@ -1,5 +1,4 @@
 <?php
-// session_start(); // Jika dibutuhkan nanti
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -27,8 +26,6 @@
     </div>
     <nav class="navbar">
       <ul class="nav-list">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
 
         <!-- Dropdown Login -->
         <li class="nav-item dropdown">
