@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include 'db.php';
@@ -538,37 +539,7 @@ $result_users = mysqli_stmt_get_result($stmt);
           <h3 id="activeUserName">Nama Konseli</h3>
           <p class="chat-status" id="activeUserStatus">Online</p>
         </div>
-      </div>
-      <div class="chat-actions">
-        <span class="badge" id="chatBadge">Active</span>
-      </div>
-    </div>
-    
-    <!-- Container pesan -->
-    <div class="messages-container" id="messagesContainer">
-      <div class="empty-chat" id="emptyChatState">
-        <div>
-          <i class="fas fa-comments"></i>
-          <h3>Selamat datang di Chat</h3>
-          <p>Pilih konseli dari daftar di sebelah kiri untuk memulai percakapan</p>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Input area -->
-    <div class="chat-input-area" id="chatInputArea" style="display: none;">
-      <form class="chat-input-form" id="chatForm">
-        <input type="text" 
-               placeholder="Ketik pesan..." 
-               id="messageInput"
-               autocomplete="off">
-        <button type="submit" class="send-button" id="sendButton">
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </form>
-    </div>
-  </main>
-</div>
+<<
 
 <script>
 // ================================
