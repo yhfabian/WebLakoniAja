@@ -7,14 +7,14 @@ if (!isset($_SESSION['id_konselor'])) {
 $id_konselor = $_SESSION['id_konselor'];
 
 // API rekam medis
-$api_url = "http://localhost/lakoni_aja/api/monitoring/list.php?id_konselor=" . $id_konselor;
+$api_url = "http://localhost/WeblakoniAja/api/monitoring/list.php?id_konselor=" . $id_konselor;
 $response = file_get_contents($api_url);
 $data = json_decode($response, true);
 
 $monitoring = $data['data'] ?? [];
 
 // API list user (untuk popup tambah)
-$user_list = file_get_contents("http://localhost/lakoni_aja/api/monitoring/user_list.php");
+$user_list = file_get_contents("http://localhost/WeblakoniAja/api/monitoring/user_list.php");
 $users = json_decode($user_list, true)['data'] ?? [];
 ?>
 <!DOCTYPE html>
@@ -101,7 +101,7 @@ $users = json_decode($user_list, true)['data'] ?? [];
 
                 <div class="card-info">
                     <p><strong>Email:</strong> <?= $m['email_user'] ?></p>
-                    <p><strong>Tanggal:</strong> <?= $m['tanggal'] ?></p>
+                    <p><strong>Diagnosis:</strong> <?= $m['diagnosis'] ?></p>
                 </div>
 
                 <a href="rm_detail.php?id=<?= $m['id_monitoring'] ?>" class="btn-detail">
@@ -136,7 +136,7 @@ $users = json_decode($user_list, true)['data'] ?? [];
                 <select name="id_user" class="input" required>
                     <option value="">-- Pilih Mahasiswa --</option>
                     <?php
-                    $users = file_get_contents("http://localhost/lakoni_aja/api/monitoring/user_list.php");
+                    $users = file_get_contents("http://localhost/weblakoniaja/api/monitoring/user_list.php");
                     $users = json_decode($users, true)['data'] ?? [];
                     foreach ($users as $u):
                     ?>

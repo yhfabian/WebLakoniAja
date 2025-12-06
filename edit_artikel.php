@@ -62,84 +62,90 @@ exit();
 </head>
 <body>
 
-<div class="sidebar">
+<!-- TAMBAHKIN DIV LAYOUT INI -->
+<div class="layout">
 
-    <div>
-        <a href="dashboard.php" class="item icon top">
-            <i class="ri-home-5-line"></i>
-        </a>
+    <div class="sidebar">
+        <div>
+            <a href="dashboard.php" class="item icon top">
+                <i class="ri-home-5-line"></i>
+            </a>
+        </div>
+
+        <div class="menu">
+            <a href="jadwalkonselor.php" class="item">
+                <i class="ri-calendar-event-line"></i>
+            </a>
+            <a href="chat.php" class="item">
+                <i class="ri-message-3-line"></i>
+            </a>
+            <a href="testimoni.php" class="item">
+                <i class="ri-chat-smile-3-line"></i>
+            </a>
+            <a href="rekam_medis.php" class="item">
+                <i class="ri-file-list-3-line"></i>
+            </a>
+            <a href="artikel.php" class="item active">
+                <i class="ri-article-line"></i>
+            </a>
+        </div>
+
+        <div>
+            <a href="logout.php" class="icon bottom">
+                <i class="ri-logout-circle-r-line"></i>
+            </a>
+        </div>
     </div>
 
-    <div class="menu">
-        <a href="jadwalkonselor.php" class="item">
-            <i class="ri-calendar-event-line"></i>
-        </a>
-        <a href="chat.php" class="item">
-            <i class="ri-message-3-line"></i>
-        </a>
-        <a href="testimoni.php" class="item">
-            <i class="ri-chat-smile-3-line"></i>
-        </a>
-        <a href="rekam_medis.php" class="item">
-            <i class="ri-file-list-3-line"></i>
-        </a>
-        <a href="artikel.php" class="item active">
-            <i class="ri-article-line"></i>
-        </a>
-    </div>
+    <!-- TAMBAHKIN DIV CONTENT-AREA INI -->
+    <div class="content-area">
+        <div class="form-page">
+            <div class="form-box">
 
-    <div>
-        <a href="logout.php" class="icon bottom">
-            <i class="ri-logout-circle-r-line"></i>
-        </a>
-    </div>
+                <h2>Edit Artikel</h2>
 
-</div>
+                <form method="POST" enctype="multipart/form-data">
 
-<div class="form-page">
-    <div class="form-box">
+                    <label>Judul Artikel</label>
+                    <input 
+                        type="text"
+                        name="judul"
+                        value="<?= htmlspecialchars($artikel['judul']) ?>"
+                        required
+                        oninput="this.value = this.value.toUpperCase()"
+                    >
 
-        <h2>Edit Artikel</h2>
+                    <label>Isi Artikel</label>
+                    <textarea name="isi" rows="5" required><?= htmlspecialchars($artikel['isi']) ?></textarea>
 
-        <form method="POST" enctype="multipart/form-data">
+                    <label>Link Sumber</label>
+                    <input 
+                        type="text"
+                        name="link_sumber"
+                        value="<?= htmlspecialchars($artikel['link_sumber']) ?>"
+                        required
+                    >
 
-            <label>Judul Artikel</label>
-            <input 
-                type="text"
-                name="judul"
-                value="<?= htmlspecialchars($artikel['judul']) ?>"
-                required
-                oninput="this.value = this.value.toUpperCase()"
-            >
+                    <label>Gambar Saat Ini</label>
+                    <br>
+                    <img src="uploads/artikel/<?= $artikel['gambar'] ?>" width="180" style="border-radius:10px; margin:10px 0;">
+                    <br>
 
-            <label>Isi Artikel</label>
-            <textarea name="isi" rows="5" required><?= htmlspecialchars($artikel['isi']) ?></textarea>
+                    <label>Upload Gambar Baru (opsional)</label>
+                    <input type="file" name="gambar" accept="image/*">
 
-            <label>Link Sumber</label>
-            <input 
-                type="text"
-                name="link_sumber"
-                value="<?= htmlspecialchars($artikel['link_sumber']) ?>"
-                required
-            >
+                    <div class="form-buttons">
+                        <button type="submit" name="update" class="btn-save">Simpan</button>
+                        <a href="artikel.php" class="btn-cancel">Batal</a>
+                    </div>
 
-            <label>Gambar Saat Ini</label>
-            <br>
-            <img src="uploads/artikel/<?= $artikel['gambar'] ?>" width="180" style="border-radius:10px; margin:10px 0;">
-            <br>
+                </form>
 
-            <label>Upload Gambar Baru (opsional)</label>
-            <input type="file" name="gambar" accept="image/*">
-
-            <div class="form-buttons">
-                <button type="submit" name="update" class="btn-save">Simpan</button>
-                <a href="artikel.php" class="btn-cancel">Batal</a>
             </div>
-
-        </form>
-
+        </div>
     </div>
-</div>
+
+</div> <!-- TUTUP DIV LAYOUT -->
 
 </body>
 </html>

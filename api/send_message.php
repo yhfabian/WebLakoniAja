@@ -4,7 +4,10 @@ header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') { http_response_code(200); exit(); }
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') { 
+    http_response_code(200); 
+    exit(); 
+}
 
 require_once __DIR__ . '/../db.php';
 
@@ -19,16 +22,18 @@ if (empty($id_booking) || empty($pesan)) {
 }
 
 /*
- * LOGIKA PENTING:
- * Jika web konselor → id_user harus NULL
- * Jika android user  → id_konselor harus NULL
+ * LOGIKA BARU:
+ * Jika pesan dari WEB KONSELOR → id_user harus NULL
+ * Jika pesan dari USER ANDROID → id_konselor TETAP DIISI
  */
-if (!empty($id_konselor)) {
-    // Pesan dikirim KONSELOR WEB
+if (!empty($id_user)) {
+}
+else if (!empty($id_konselor)) {
     $id_user = NULL;
-} else {
-    // Pesan dikirim USER ANDROID
-    $id_konselor = NULL;
+}
+else {
+    echo json_encode(["status" => "error", "message" => "id_user atau id_konselor harus dikirim"]);
+    exit();
 }
 
 try {

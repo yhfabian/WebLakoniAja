@@ -21,7 +21,7 @@ $foto = !empty($konselor['foto']) ? 'uploads/' . $konselor['foto'] : 'assets/img
 // --------------- Ambil data jadwal via API terlebih dahulu ---------------
 $jadwals = [];
 $api_url = (strpos($_SERVER['HTTP_HOST'],'localhost') !== false || strpos($_SERVER['HTTP_HOST'],'127.0.0.1') !== false)
-    ? "http://{$_SERVER['HTTP_HOST']}/lakoni_aja/api/jadwal_list.php?id_konselor={$id_konselor}"
+    ? "http://{$_SERVER['HTTP_HOST']}/WeblakoniAja/api/jadwal_list.php?id_konselor={$id_konselor}"
     : "/api/jadwal_list.php?id_konselor={$id_konselor}";
 
 // try file_get_contents
@@ -86,6 +86,7 @@ if (isset($_GET['error'])) {
 </head>
 <body>
 
+<div class="layout">
   <div class="sidebar">
 
     <div>
@@ -230,7 +231,7 @@ if (isset($_GET['error'])) {
       </form>
     </div>
   </div>
-
+</div>
 <script>
   // Popup
   const addBtn = document.getElementById("addBtn");

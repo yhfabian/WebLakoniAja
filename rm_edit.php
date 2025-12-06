@@ -9,7 +9,7 @@ $id_monitoring = $_GET['id'] ?? null;
 if (!$id_monitoring) {
     die("ID Rekam Medis tidak ditemukan.");
 }
-$api_url = "http://127.0.0.1/lakoni_aja/api/monitoring/detail.php?id=" . $id_monitoring;
+$api_url = "http://127.0.0.1/weblakoniaja/api/monitoring/detail.php?id=" . $id_monitoring;
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $api_url);
