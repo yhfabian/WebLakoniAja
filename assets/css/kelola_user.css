@@ -1,4 +1,4 @@
-@import url('dashboard_admin.css');
+
 
 .page-tittle {
   color: #3B82F6;
@@ -190,50 +190,78 @@ tr:hover td {
   background-color: #fcfdfe;
 }
 
-/* --- STYLING LINK AKSI (Edit | Hapus) --- */
-/* Sesuai gambar: Teks Ungu, Underline, bukan tombol kotak */
+/* --- STYLING TOMBOL AKSI --- */
 
-td a.btn-action {
-  color: #4318FF; /* Warna Ungu sesuai gambar */
-  text-decoration: underline;
-  font-weight: 600;
-  font-size: 14px;
-  margin-right: 5px;
-  cursor: pointer;
-  transition: 0.2s;
+/* Container untuk tombol aksi agar inline */
+.td-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap; /* Pastikan tidak pindah baris */
 }
 
-td a.btn-action:hover {
-  color: #26089e; /* Warna ungu lebih gelap saat di-hover */
-}
-
-/* Khusus untuk teks pemisah "|" agar warnanya netral */
-td {
-    vertical-align: middle;
-}
-th {
-  background: #e2e8f0;
-}
-
+/* Tombol Edit */
 .btn-edit {
-  background-color: #ffc107;
+  background-color: #ffc107; 
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
   color: white;
-  margin-right: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+  display: inline-block;
 }
 
+.btn-edit:hover {
+  background-color: #0056b3;
+}
+
+/* Tombol Hapus */
 .btn-hapus {
-  background-color: #dc3545;
+  background-color: #dc3545; /* Merah */
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
   color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+  display: inline-block;
 }
 
+.btn-hapus:hover {
+  background-color: #b02a37;
+}
+
+/* Garis pemisah "|" */
+.btn-separator {
+  color: #ccc;
+  margin: 0 5px;
+}
+
+/* --- OPTIONAL: Buat tabel lebih responsif --- */
+.table-container {
+  overflow-x: auto; /* Tambahkan scroll horizontal jika tabel terlalu lebar */
+  margin-top: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+}
+
+/* Perkecil padding jika perlu */
+th, td {
+  padding: 12px 15px; /* Kurangi dari 18px 20px */
+}
+
+/* Atur lebar kolom agar optimal */
+.table-container table {
+  min-width: 1000px; /* Minimal width agar semua kolom muat */
+}
 /* Footer */
 .footer {
   position: fixed;
