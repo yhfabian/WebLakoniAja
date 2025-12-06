@@ -87,11 +87,13 @@ if (isset($_GET['cari'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <title>Kelola User</title>
-    <link rel="stylesheet" href="assets/css/kelola_user.css?v=<?= time(); ?>">
+    <!-- Load kedua CSS secara terpisah -->
+    <link rel="stylesheet" href="assets/css/dashboard_admin.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/kelola_user.css?v=<?php echo time(); ?>">
 </head>
 
 <body>

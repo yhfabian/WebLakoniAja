@@ -25,6 +25,7 @@ $listKonselor = mysqli_query($conn, "SELECT id_konselor, nama FROM konselor");
     <meta charset="UTF-8">
     <title>Edit Jadwal</title>
     <link rel="stylesheet" href="assets/css/edit_jadwal.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/dashboard_admin.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
